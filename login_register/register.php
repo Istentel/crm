@@ -49,7 +49,7 @@
         }
 
         #Close this page and redirect to index
-        #header("Location: ../dummi.php");
-		#exit;
+        header("Location: ../dummi.php");
+	    exit;
     }
 ?>
