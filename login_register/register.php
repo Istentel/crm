@@ -33,11 +33,14 @@
         #Create a PDOStatement object
         $stm = $db->prepare($query);
 
+        #Hash password
+        $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+
         #Bind values to parameters in the prepared statement
         $stm->bindValue(':first_name', $first_name);
         $stm->bindValue(':last_name', $last_name);
         $stm->bindValue(':email', $email);
-        $stm->bindValue(':password', $password);
+        $stm->bindValue(':password', $pass_hash);
 
         #Execute query and store true or false based on success
         $execute_success = $stm->execute();

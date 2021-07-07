@@ -41,7 +41,7 @@
 
     #3.Compare data
 
-    if($password == $db_data[0]["password"]){
+    if(password_verify($password, $db_data[0]["password"])){
         #Start session
         session_start();
 
