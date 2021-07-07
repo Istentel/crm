@@ -50,7 +50,8 @@
             print_r($stm->errorInfo()[2]);
         }
 
-        #header("Location: dummi.php");
-		#exit;
+        #Close this page and redirect to index
+        header("Location: dummi.php");
+		exit;
     }
 ?>
