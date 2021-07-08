@@ -52,7 +52,7 @@
         }
 
         #Close this page and redirect to index
-        header("Location: ../dummi.php");
+        header("Location: login.html");
 	    exit;
     }
 ?>
