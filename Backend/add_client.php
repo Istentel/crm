@@ -41,7 +41,7 @@
         $stm->bindValue(':adress', $adress);
         $stm->bindValue(':phone', $phone);
 
-        #Execute query and store true or flase based on success
+        #Execute query and store true or false based on success
         $execute_success = $stm->execute();
         $stm->closeCursor();
 

@@ -7,7 +7,7 @@
     $passwordC = filter_input(INPUT_POST, "passwordC");
 
     if(!($password == $passwordC)){
-        $err_msg = "Password does't match!";
+        $err_msg = "Password doesn't match!";
         include('../error.php');
     }
 
