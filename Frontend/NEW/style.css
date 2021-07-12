@@ -214,7 +214,7 @@
   height: 100vh;
   left: 260px;
   width: calc(100% - 260px);
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
 }
 .sidebar.close ~ .home-section{
   left: 78px;
@@ -229,7 +229,7 @@
 .home-section .home-content .text{
   color: #fff;
   font-size: 35px;
-  text-align: r;
+  
 }
 .home-section .home-content .bx-menu{
   margin: 0 15px;
@@ -239,6 +239,4 @@
   font-size: 26px;
   font-weight: 600;
 }
-h1{
-    text-align: right;
-}
+
