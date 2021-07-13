@@ -52,7 +52,7 @@
             $_SESSION["email"] = $db_data[0]["email"];
 
             #Exist this page and redirect to new page
-            header("Location: session.php");
+            header("Location: ../../Frontend/Html/index.html");
             exit;
         }else{
             $err_msg = "Password doesn't match!";
