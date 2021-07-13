@@ -210,7 +210,7 @@
 }
 .home-section{
   position: relative;
-  background: url('modifyman.jpg');
+  background: url('/Imagini/modifyman.jpg');
   height: 100vh;
   left: 260px;
   width: calc(100% - 260px);
@@ -238,5 +238,22 @@
 .home-section .home-content .text{
   font-size: 26px;
   font-weight: 600;
+}
+.button{
+  position:absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+.btn{
+  border:1px solid #000;
+  padding: 10px 30px;
+  color:#fff;
+  text-decoration:none ;
+  transition: 0.6 ease;
+}
+.btn:hover{
+  background-color:whitesmoke ;
+  color: #000;
 }
 
