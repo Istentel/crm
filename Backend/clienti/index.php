@@ -26,7 +26,17 @@
         </tr>
 
         <form action="add_companie.php" method="post">
-            
+            <label>Companie:</label>
+            <input type="text" name="companie"><br>
+            <label>Telefon:</label>
+            <input type="text" name="telefon"><br>
+            <label>Grup:</label>
+            <select name="grup">
+                <option value="vip">Vip</option>
+                <option value="low budget">Low Budget</option>
+                <option value="high budget">High Budget</option>
+                <option value="wholesaler">Wholesaler</option>
+            </select>
         </form>
     </table>
 </body>
