@@ -22,7 +22,7 @@
 
         <?php foreach($facturi as $factura) : ?>
         <tr>
-            <td><a href="add_detalii.html"><?php echo $factura['id']; ?></a></td>
+            <td><a href="detalii.php?id=<?php echo $factura['id']; ?>"><?php echo $factura['id']; ?></a></td>
             <td><?php echo $factura['fi_nume']; ?></td>
             <td><?php echo $factura['f_seria_nr_fac']; ?></td>
             <td><?php echo 0; ?></td>

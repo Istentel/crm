@@ -24,7 +24,7 @@
 
     require_once('../connect.php');
 
-    $query = 'INSERT INTO factura (fi_nume, fi_nr_ord_reg_com, fi_cif, fi_adresa, fi_telefon, fi_email, fi_site, c_cumparator, c_nr_ord_reg_com, c_cif, c_adresa, c_banca, c_iban, c_telefon, c_email, c_site, f_seria_nr_fac, f_data, f_termen) VALUES(:fi_nume, :fi_nr_ord_reg_com, :fi_cif, :fi_adresa, :fi_telefon, :fi_email, :fi_site, :c_cumparator, :c_nr_ord_reg_com, :c_cif, :c_adresa, :c_banca, :c_iban, :c_telefon, :c_email, :c_site, :f_seria_nr_fac, :f_data, :f_termen)';
+    $query = 'INSERT INTO facturi (fi_nume, fi_nr_ord_reg_com, fi_cif, fi_adresa, fi_telefon, fi_email, fi_site, c_cumparator, c_nr_ord_reg_com, c_cif, c_adresa, c_banca, c_iban, c_telefon, c_email, c_site, f_seria_nr_fac, f_data, f_termen) VALUES(:fi_nume, :fi_nr_ord_reg_com, :fi_cif, :fi_adresa, :fi_telefon, :fi_email, :fi_site, :c_cumparator, :c_nr_ord_reg_com, :c_cif, :c_adresa, :c_banca, :c_iban, :c_telefon, :c_email, :c_site, :f_seria_nr_fac, :f_data, :f_termen)';
 
     #Create a PDOStatement object
     $stm = $db->prepare($query);
