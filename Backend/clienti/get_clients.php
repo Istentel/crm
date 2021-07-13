@@ -1,10 +1,10 @@
 <?php
     #Connect to the database
-    require('connect.php');
+    require('../connect.php');
 
     #Get clients names
     #Define the querry
-    $query_clients = 'SELECT * FROM clients ORDER BY id';
+    $query_clients = 'SELECT * FROM firma_clienti ORDER BY id';
 
     #Prepare statement to execute 
     #This creates a PDOStatement object

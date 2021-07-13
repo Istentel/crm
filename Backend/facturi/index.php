@@ -1,5 +1,6 @@
 <?php
     include('get_facturi.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facturi</title>
+    <style type="text/css">
+        td
+        {
+            padding:0 15px;
+        }
+    </style>
 </head>
 <body>
     <h3>Lista Facturi</h3>
@@ -25,7 +32,7 @@
             <td><a href="detalii.php?id=<?php echo $factura['id']; ?>"><?php echo $factura['id']; ?></a></td>
             <td><?php echo $factura['fi_nume']; ?></td>
             <td><?php echo $factura['f_seria_nr_fac']; ?></td>
-            <td><?php echo 0; ?></td>
+            <td><?php echo getTotal($factura['id'], $factura_detalii); ?></td>
             
         </tr>
         <?php endforeach; ?>

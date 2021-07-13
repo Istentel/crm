@@ -26,10 +26,10 @@
         $err_msg = "Phone Not Valid<br>";
         include('error.php');
     }else{
-        require_once('connect.php');
+        require_once('../connect.php');
 
         #Create query
-        $query = 'INSERT INTO clients (first_name, last_name, email, adress, phone) VALUES(:first_name, :last_name, :email, :adress, :phone)';
+        $query = 'INSERT INTO firma_clienti (first_name, last_name, email, adress, phone) VALUES(:first_name, :last_name, :email, :adress, :phone)';
 
         #Create a PDOStatement object
         $stm = $db->prepare($query);
@@ -51,7 +51,7 @@
         }
 
         #Close this page and redirect to index
-        header("Location: dummi.php");
+        header("Location: index.php");
 		exit;
     }
 ?>

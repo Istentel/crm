@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST["submit"])){
         #1.Get data from site
-        $email = filter_input(INPUT_POST, "email");
+        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
         $password = filter_input(INPUT_POST, "password");
 
         #2.Get data from database
@@ -35,7 +35,7 @@
 
         #Check if there is data 
         if(!$db_data){
-            $err_msg = "Email or password are invalid!";
+           $err_msg = "Email or password are invalid!";
             include('../error.php');
             exit;
         }

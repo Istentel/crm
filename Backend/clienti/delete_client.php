@@ -5,12 +5,12 @@
     
     if($id == null){
         $err_msg = "All Values Not Entered";
-        include('error.php');
+        include('../error.php');
     } else {
-        require_once('connect.php');
+        require_once('../connect.php');
 
         #Create query
-        $query = 'DELETE FROM clients WHERE id = :id';
+        $query = 'DELETE FROM firma_clienti WHERE id = :id';
 
         #Create a PDOStatement object
         $stm = $db->prepare($query);
@@ -27,7 +27,7 @@
             print_r($stm->errorInfo()[2]);
         }
 
-        header("Location: dummi.php");
+        header("Location: index.php");
 		exit;
     }
 ?>
