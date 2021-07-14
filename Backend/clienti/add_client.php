@@ -1,45 +1,53 @@
 <?php
+if(isset($_POST["submit"])){
     #Get data
-    $first_name = filter_input(INPUT_POST, "first_name");
-    $last_name = filter_input(INPUT_POST, "last_name");
+    $id = filter_input(INPUT_POST, "id");
+    $nume = filter_input(INPUT_POST, "nume");
+    $prenume = filter_input(INPUT_POST, "prenume");
     $email = filter_input(INPUT_POST, "email");
-    $adress = filter_input(INPUT_POST, "adress");
-    $phone = filter_input(INPUT_POST, "phone");
+    $telefon = filter_input(INPUT_POST, "telefon");
+    $pozitie = filter_input(INPUT_POST, "pozitie");
+    $activ = filter_input(INPUT_POST, "activ");
 
     #Check all data is entered
-    if($first_name == null || $last_name == null || $email == null || $adress == null || $phone == null){
+    if($nume == null || $prenume == null || $email == null || $telefon == null || $pozitie == null){
         $err_msg = "All Values Not Entered<br>";
         include('error.php');
-    }elseif(!preg_match("/[a-zA-Z]{3,30}$/", $first_name)){
-        $err_msg = "First Name Not Valid<br>";
+    }elseif(!preg_match("/[a-zA-Z]{3,30}$/", $nume)){
+        $err_msg = "Numele nu este valid<br>";
         include('error.php');
-    }elseif(!preg_match("/[a-zA-Z]{3,30}$/", $last_name)){
-        $err_msg = "Last Name Not Valid<br>";
+    }elseif(!preg_match("/[a-zA-Z]{3,30}$/", $prenume)){
+        $err_msg = "Prenumele nu este vaild<br>";
         include('error.php');
     }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $err_msg = "Email Not Valid";
         include('error.php');
-    }elseif(!preg_match("/^[A-Za-z0-9 ,#'\/.]{3,50}$/", $adress)){
-        $err_msg = "Adress Not Valid";
+    }elseif(!preg_match("/^[A-Za-z0-9 ,#'\/.]{3,50}$/", $pozitie)){
+        $err_msg = "Pozitia nu este valida!<br>";
         include('error.php');
-    }elseif(!preg_match("/(([0-9]{1})*[- .(]*([0-9]{3})[- .)]*[0-9]{3}[- .]*[0-9]{4})+$/", $phone)){
-        $err_msg = "Phone Not Valid<br>";
+    }elseif(!preg_match("/(([0-9]{1})*[- .(]*([0-9]{3})[- .)]*[0-9]{3}[- .]*[0-9]{4})+$/", $telefon)){
+        $err_msg = "Telefonul nu este valid<br>";
         include('error.php');
     }else{
         require_once('../connect.php');
 
+        $companie = getNumeFirma($id, $db);
+
         #Create query
-        $query = 'INSERT INTO firma_clienti (first_name, last_name, email, adress, phone) VALUES(:first_name, :last_name, :email, :adress, :phone)';
+        $query = 'INSERT INTO firma_clienti (id, nume, prenume, email, companie, telefon, pozitie, activ) VALUES(:id, :nume, :prenume, :email, :companie, :telefon, :pozitie, :activ)';
 
         #Create a PDOStatement object
         $stm = $db->prepare($query);
 
         #Bind values to parameters in the prepared statement
-        $stm->bindValue(':first_name', $first_name);
-        $stm->bindValue(':last_name', $last_name);
+        $stm->bindValue(':id', $id);
+        $stm->bindValue(':nume', $nume);
+        $stm->bindValue(':prenume', $prenume);
         $stm->bindValue(':email', $email);
-        $stm->bindValue(':adress', $adress);
-        $stm->bindValue(':phone', $phone);
+        $stm->bindValue(':companie', $companie);
+        $stm->bindValue(':telefon', $telefon);
+        $stm->bindValue(':pozitie', $pozitie);
+        $stm->bindValue(':activ', true);
 
         #Execute query and store true or false based on success
         $execute_success = $stm->execute();
@@ -54,4 +62,25 @@
         header("Location: index.php");
 		exit;
     }
+}
+
+function getNumeFirma($id, $db){
+
+    $query = 'SELECT companie FROM firme WHERE id=:id';
+
+    #Create a PDOStatement object
+    $stm = $db->prepare($query);
+
+    #Bind values to parameters in the prepared statement
+    $stm->bindValue(':id', $id);
+
+    #Execute query and store true or false based on success
+    $stm->execute();
+
+    $nume = $stm->fetchAll();
+
+    $stm->closeCursor();
+
+    return $nume[0]['companie'];
+}
 ?>

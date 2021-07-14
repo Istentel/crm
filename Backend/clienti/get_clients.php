@@ -4,11 +4,13 @@
 
     #Get clients names
     #Define the querry
-    $query_clients = 'SELECT * FROM firma_clienti ORDER BY id';
+    $query_clients = 'SELECT * FROM firma_clienti WHERE id=:id';
 
     #Prepare statement to execute 
     #This creates a PDOStatement object
     $client_statement = $db->prepare($query_clients);
+
+    $client_statement->bindValue(":id", $id);
 
     #Execute the query
     $client_statement->execute();
