@@ -47,12 +47,13 @@
             session_start();
 
             #Set variables
-            $_SESSION["fname"] = $db_data[0]["first_name"];
-            $_SESSION["lname"] = $db_data[0]["last_name"];
+            $_SESSION["account_id"] = $db_data[0]["account_id"];
+            $_SESSION["fname"] = $db_data[0]["fname"];
+            $_SESSION["lname"] = $db_data[0]["lname"];
             $_SESSION["email"] = $db_data[0]["email"];
 
             #Exist this page and redirect to new page
-            header("Location: ../../Frontend/Html/index.html");
+            header("Location: ../../Frontend/Html/index.php");
             exit;
         }else{
             $err_msg = "Password doesn't match!";

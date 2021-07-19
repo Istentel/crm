@@ -2,7 +2,7 @@
 body{
  margin: 0;
  padding: 0;
- background: url(/Frontend/Imagini/register.jpg);
+ background: url(../Imagini/register.jpg);
 background-size: cover;
 background-position: center;
 font-family: sans-serif;

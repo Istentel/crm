@@ -1,8 +1,38 @@
+<?php
+  session_start();
+  $account_id = $_SESSION["account_id"];
+  $fname = $_SESSION["fname"];
+  $lname = $_SESSION["lname"];
+  $email = $_SESSION["email"];
+
+  #Connect to the database
+  require('../../Backend/connect.php');
+
+  #Get clients names
+  #Define the querry
+  $query_agenti = 'SELECT * FROM sellersagent WHERE id=:id';
+
+  #Prepare statement to execute 
+  #This creates a PDOStatement object
+  $agenti_statement = $db->prepare($query_agenti);
+
+  $agenti_statement->bindValue(":id", $account_id);
+
+  #Execute the query
+  $agenti_statement->execute();
+
+  #Return an array containing the query results
+  $agenti_data = $agenti_statement->fetchAll();
+
+  #Allow new sql statements to execute
+  $agenti_statement->closeCursor();
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/Frontend/css/style.css">
+    <link rel="stylesheet"  href="/crm/Frontend/css/AgentVanzari.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -31,6 +61,7 @@
     </script>
    </head>
 <body>
+  
   <div class="wrapper">
     <div class="navbar">
       <div class="navbar_left">
@@ -38,7 +69,10 @@
           
         </div>
       </div>
-  
+      <div class="search-box">
+        <input type ="text" placeholder="Search...">
+        <i class='bx bx-search'></i>
+      </div>
       <div class="navbar_right">
         <div class="notifications">
           <div class="icon_wrap"><i class="far fa-bell"></i></div>
@@ -134,8 +168,8 @@
         </div>
         <div class="profile">
           <div class="icon_wrap">
-            <img src="/Frontend/Imagini/profile_pic.png" alt="profile_pic">
-            <span class="name">Theo Vale</span>
+            <img src="/crm/Frontend/Imagini/profile_pic.png" alt="profile_pic">
+            <span class="name"><?php echo $fname . " " . $lname; ?></span>
             <i class="fas fa-chevron-down"></i>
           </div>
   
@@ -272,7 +306,7 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="index.html">
+        <a href="index.php">
             <i class="fas fa-home"></i>
           <span class="link_name">Home</span>
         </a>
@@ -282,14 +316,14 @@
       </li>
       <li>
         <div class="iocn-link">
-          <a href="/Frontend/Html/AgentVanzari.html">
+          <a href="/Frontend/Html/AgentVanzari.php">
             <i class="fas fa-user-tie"></i>
             <span class="link_name">Agent Vanzari</span>
           </a>
          
         </div>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.html">Agent Vanzari</a></li>
+          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.php">Agent Vanzari</a></li>
          
         </ul>
       </li>
@@ -384,8 +418,43 @@
   <section class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Platforma Management al Afacerii Tale</span>
+      <span class="text">Agent Vanzari</span>
     </div>
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>Nume</th>
+          <th>Prenume</th>
+          <th>Email</th>
+          <th>Telefon</th>
+          <th>Firme asociate</th>
+          <th>Grupuri</th>
+          <th>Activ</th>
+          
+          <th>Nr.Produse Vandute</th>
+          <th>Data Angajare</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach($agenti_data as $data) :?>
+          <tr class="active-row">
+            <td><?php echo $data['first_name']; ?></td>
+            <td><?php echo $data['last_name']; ?></td>
+            <td><?php echo $data['email']; ?></td>
+            <td><?php echo $data['phone']; ?></td>
+            <td><?php echo $data['firme_asociate']; ?></td>
+            <td><?php echo $data['grupuri']; ?></td>
+            <td> <div class="toggle">
+              <input type="checkbox" <?php if($data['activ']) echo 'checked';?>>
+              <label for="" class="onbtn"></label>
+              <label for="" class="ofbtn"></label>
+            </div></td>
+            <td><?php echo $data['prod_vandute']; ?></td>
+            <td><?php echo $data['data_angajare']; ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
   
   </section>
 
