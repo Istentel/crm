@@ -1,8 +1,38 @@
+<?php
+  session_start();
+  $account_id = $_SESSION["account_id"];
+  $fname = $_SESSION["fname"];
+  $lname = $_SESSION["lname"];
+  $email = $_SESSION["email"];
+
+  #Connect to the database
+  require('../../Backend/connect.php');
+
+  #Get clients names
+  #Define the querry
+  $query_agenti = 'SELECT * FROM sellersagent WHERE id=:id';
+
+  #Prepare statement to execute 
+  #This creates a PDOStatement object
+  $agenti_statement = $db->prepare($query_agenti);
+
+  $agenti_statement->bindValue(":id", $account_id);
+
+  #Execute the query
+  $agenti_statement->execute();
+
+  #Return an array containing the query results
+  $agenti_data = $agenti_statement->fetchAll();
+
+  #Allow new sql statements to execute
+  $agenti_statement->closeCursor();
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/Frontend/css/AgentVanzari.css">
+    <link rel="stylesheet"  href="/crm/Frontend/css/AgentVanzari.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -138,8 +168,8 @@
         </div>
         <div class="profile">
           <div class="icon_wrap">
-            <img src="/Frontend/Imagini/profile_pic.png" alt="profile_pic">
-            <span class="name">Theo Vale</span>
+            <img src="/crm/Frontend/Imagini/profile_pic.png" alt="profile_pic">
+            <span class="name"><?php echo $fname . " " . $lname; ?></span>
             <i class="fas fa-chevron-down"></i>
           </div>
   
@@ -151,7 +181,7 @@
               </li>
               <li><a class="address" href="#"><span class="picon"><i class="fas fa-map-marker"></i></span>Address</a></li>
               <li><a class="settings" href="#"><span class="picon"><i class="fas fa-cog"></i></span>Settings</a></li>
-              <li><a class="logout" href="/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
+              <li><a class="logout" href="/crm/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
             </ul>
           </div>
         </div>
@@ -276,7 +306,7 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="index.html">
+        <a href="index.php">
             <i class="fas fa-home"></i>
           <span class="link_name">Home</span>
         </a>
@@ -286,14 +316,14 @@
       </li>
       <li>
         <div class="iocn-link">
-          <a href="/Frontend/Html/AgentVanzari.html">
+          <a href="/Frontend/Html/AgentVanzari.php">
             <i class="fas fa-user-tie"></i>
             <span class="link_name">Agent Vanzari</span>
           </a>
          
         </div>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.html">Agent Vanzari</a></li>
+          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.php">Agent Vanzari</a></li>
          
         </ul>
       </li>
@@ -307,8 +337,8 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href=/Frontend/Html/Management Clienti.html">Management Clienti</a></li>
-          <li><a href="#">Clienti noi</a></li>
-          <li><a href="#">Clienti vechi</a></li>          
+          <li><a href="#">Facturi</a></li>
+          <li><a href="#">Contacte</a></li>          
         </ul>
       </li>
       <li>
@@ -390,6 +420,11 @@
       <i class='bx bx-menu' ></i>
       <span class="text">Agent Vanzari</span>
     </div>
+    <div class="buttons">
+          <a href="/crm/Frontend/Html/Agent_nou.html" class="btn btn-info pull-left">Agent Nou</a>
+          <a href="crm/Frontend/Html/Agent_import.html" class="btn btn-info pull-left">Agent Import</a>
+          <a href="/crm/Frontend/Html/Contact_agent.html" class="btn btn-info pull-left">Contacte</a>
+    </div> 
     <table class="content-table">
       <thead>
         <tr>
@@ -406,60 +441,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>test</td>
-          <td>Cristi</td>
-          <td>Cristipas@yahoo.com</td>
-          <td>0757014485</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td> <div class="toggle">
-            <input type="checkbox">
-            <label for="" class="onbtn"></label>
-            <label for="" class="ofbtn"></label>
-          </div></td>
-          <td>22332</td>
-          <td>2021-07-14/12:55:22</td>
-          
-        </tr>
-        <tr class="active-row">
-          <td>test1</td>
-          <td>Theo</td>
-          <td>theovale@gmail.com</td>
-          <td>075701433</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td>  <div class="toggle">
-            <input type="checkbox">
-            <label for="" class="onbtn"></label>
-            <label for="" class="ofbtn"></label>
-          </div></td>
-          <td>333332</td>
-          <td>2020-02-12/16:45:12</td>
-          
-        </tr>
-        <tr>
-          <td>test2</td>
-          <td>Eugen</td>
-          <td>StaicuEugen@yahoo.com</td>
-          <td>074118145</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td><div class="toggleBox">
-           
-            <div class="toggle">
-              <input type="checkbox">
+        <?php foreach($agenti_data as $data) :?>
+          <tr class="active-row">
+            <td><?php echo $data['first_name']; ?></td>
+            <td><?php echo $data['last_name']; ?></td>
+            <td><?php echo $data['email']; ?></td>
+            <td><?php echo $data['phone']; ?></td>
+            <td><?php echo $data['firme_asociate']; ?></td>
+            <td><?php echo $data['grupuri']; ?></td>
+            <td> <div class="toggle">
+              <input type="checkbox" <?php if($data['activ']) echo 'checked';?>>
               <label for="" class="onbtn"></label>
               <label for="" class="ofbtn"></label>
-            </div>
-          </div></td>
-          <td>333332</td>
-          <td>2020-02-12/16:45:12</td>
-          
-        </tr>
+            </div></td>
+            <td><?php echo $data['prod_vandute']; ?></td>
+            <td><?php echo $data['data_angajare']; ?></td>
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
-  
   </section>
 
   <script>

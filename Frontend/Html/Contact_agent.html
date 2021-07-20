@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/Frontend/css/style.css">
+    <link rel="stylesheet"  href="/Frontend/css/Contact_Agent.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -31,6 +31,7 @@
     </script>
    </head>
 <body>
+  
   <div class="wrapper">
     <div class="navbar">
       <div class="navbar_left">
@@ -38,7 +39,10 @@
           
         </div>
       </div>
-  
+      <div class="search-box">
+        <input type ="text" placeholder="Search...">
+        <i class='bx bx-search'></i>
+      </div>
       <div class="navbar_right">
         <div class="notifications">
           <div class="icon_wrap"><i class="far fa-bell"></i></div>
@@ -263,148 +267,101 @@
           </div>
       </div>
     </div>
-    
-  </div>
-  <div class="sidebar">
-    <div class="logo-details">
+    <section class="home-section">
+        <div class="home-content">
+          
+          <span class="text">Contacte</span>
+        </div>
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>Nume</th>
+              <th>Prenume</th>
+              <th>Email</th>
+              <th>Telefon</th>
+              <th>Firme asociate</th>
+              <th>Grupuri</th>
+              <th>Activ</th>
+              
+              <th>Nr.Produse Vandute</th>
+              <th>Data Angajare</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>test</td>
+              <td>Cristi</td>
+              <td>Cristipas@yahoo.com</td>
+              <td>0757014485</td>
+              <td>QFort</td>
+              <td>da</td>
+              <td> <div class="toggle">
+                <input type="checkbox">
+                <label for="" class="onbtn"></label>
+                <label for="" class="ofbtn"></label>
+              </div></td>
+              <td>22332</td>
+              <td>2021-07-14/12:55:22</td>
+              
+            </tr>
+            <tr class="active-row">
+              <td>test1</td>
+              <td>Theo</td>
+              <td>theovale@gmail.com</td>
+              <td>075701433</td>
+              <td>QFort</td>
+              <td>da</td>
+              <td>  <div class="toggle">
+                <input type="checkbox">
+                <label for="" class="onbtn"></label>
+                <label for="" class="ofbtn"></label>
+              </div></td>
+              <td>333332</td>
+              <td>2020-02-12/16:45:12</td>
+              
+            </tr>
+            <tr>
+              <td>test2</td>
+              <td>Eugen</td>
+              <td>StaicuEugen@yahoo.com</td>
+              <td>074118145</td>
+              <td>QFort</td>
+              <td>da</td>
+              <td><div class="toggleBox">
+               
+                <div class="toggle">
+                  <input type="checkbox">
+                  <label for="" class="onbtn"></label>
+                  <label for="" class="ofbtn"></label>
+                </div>
+              </div></td>
+              <td>333332</td>
+              <td>2020-02-12/16:45:12</td>
+              <div class="dataTables_length" id="DataTables_Table_0_length">
+                  <label><select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="-1">All</option>
+                </select></label></div>
+            </div>      
+            </tr>
+          </tbody>
+        </table>
       
-      <span class="logo_name">Platforma</span>
-    </div>
-    <ul class="nav-links">
-      <li>
-        <a href="index.html">
-            <i class="fas fa-home"></i>
-          <span class="link_name">Home</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Home</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/AgentVanzari.html">
-            <i class="fas fa-user-tie"></i>
-            <span class="link_name">Agent Vanzari</span>
-          </a>
-         
-        </div>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.html">Agent Vanzari</a></li>
-         
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/Management Clienti.html">
-            <i class="fas fa-user-tag"></i>
-            <span class="link_name">Management Clienti</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href=/Frontend/Html/Management Clienti.html">Management Clienti</a></li>
-          <li><a href="#">Clienti noi</a></li>
-          <li><a href="#">Clienti vechi</a></li>          
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Management Utilizatori.html">
-            <i class="fas fa-users"></i>
-          <span class="link_name">Management Utilizatori</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Management Utilizatori.html">Management Utilizatori</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Distribuie Materiale.html">
-            <i class="fas fa-share-square"></i>
-          <span class="link_name">Distribuire Materiale</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href=/Frontend/Html/Distribuie Materiale.html">Distribuire Materiale</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/Oferte.html">
-            <i class="fas fa-tags"></i>
-            <span class="link_name">Oferte</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="/Frontend/Html/Oferte.html">Oferte</a></li>
-          <li><a href="#">Discount-uri</a></li>
-          <li><a href="#">Oferte vechi</a></li>
-          <li><a href="#">Cele mai noi oferte</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Produse_servicii.html">
-            <i class="fab fa-product-hunt"></i>
-          <span class="link_name">Produse/Servicii</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Produse_servicii.html">Produse/servicii</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Facturare.html">
-            <i class="fas fa-clipboard-list"></i>
-          <span class="link_name">Facturare</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Facturare.html">Facturare</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Rapoarte.html">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Rapoarte</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href=/Frontend/Html/Rapoarte.html">Rapoarte</a></li>
-        </ul>
-      </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
-        
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Intoarcere</div>
-        <div class="job">Pagina</div>
-      </div>
-      <i class='bx bx-log-out' ></i>
-    </div>
-  </li>
-</ul>
-  </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">Platforma Management al Afacerii Tale</span>
-    </div>
-  
-  </section>
-
-  <script>
-
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e)=>{
-   let arrowParent = e.target.parentElement.parentElement;
-   arrowParent.classList.toggle("showMenu");
-    });
-  }
-
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  console.log(sidebarBtn);
-  sidebarBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("close");
-  });
-  </script>
-</body>
-</html>
+      </section>
+    
+      
+    <script type="text/javascript">
+      var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+      
+      elems.forEach(function(html) {
+        var switchery = new Switchery(html);
+      });
+      </script>
+      
+     
+    </body>
+    </html>
+    

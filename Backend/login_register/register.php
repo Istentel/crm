@@ -4,6 +4,7 @@
         $first_name = filter_input(INPUT_POST, "fname");
         $last_name = filter_input(INPUT_POST, "lname");
         $email = filter_input(INPUT_POST, "email");
+        $phone = filter_input(INPUT_POST, "phone");
         $password = filter_input(INPUT_POST, "password");
         $passwordC = filter_input(INPUT_POST, "passwordC");
 
@@ -13,23 +14,43 @@
         }
 
         #Check all data is entered
-        if($first_name == null || $last_name == null || $email == null || $password == null){
+        if($first_name == null || $last_name == null || $email == null || $phone == null || $password == null){
             $err_msg = "All Values Not Entered<br>";
             include('../error.php');
-        }elseif(!preg_match("/[a-zA-Z]{3,30}$/", $first_name)){
-            $err_msg = "First Name Not Valid<br>";
+        }elseif(!preg_match("/[a-zA-Z]{3,50}$/", $first_name)){
+            $err_msg = "Numele nu este valid<br>";
             include('../error.php');
-        }elseif(!preg_match("/[a-zA-Z]{3,30}$/", $last_name)){
-            $err_msg = "Last Name Not Valid<br>";
+        }elseif(!preg_match("/[a-zA-Z]{3,50}$/", $last_name)){
+            $err_msg = "Prenumele nu este valid<br>";
             include('../error.php');
         }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $err_msg = "Email Not Valid";
             include('../error.php');
+        }elseif(!preg_match("/(([0-9]{1})*[- .(]*([0-9]{3})[- .)]*[0-9]{3}[- .]*[0-9]{4})+$/", $phone)){
+            $err_msg = "Telefonul nu este valid<br>";
+            include('error.php');
         }else{
             require_once('../connect.php');
 
-            #Create query
-            $query = 'INSERT INTO accounts (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)';
+            #Check if email already exists in db
+            $query_email = 'SELECT email FROM accounts';
+
+            #Create a PDOStatement object
+            $stm = $db->prepare($query_email);
+
+            $execute_success = $stm->execute();
+            $emails = $stm->fetchAll();
+            $stm->closeCursor();
+
+            foreach($emails as $em){
+                if($em['email'] == $email){
+                    $err_msg = "Exista deja un cont cu acest email!";
+                    include('../error.php');
+                }
+            }
+
+            #Create query for insertion
+            $query = 'INSERT INTO accounts (fname, lname, email, phone, password) VALUES (:fname, :lname, :email, :phone, :password)';
 
             #Create a PDOStatement object
             $stm = $db->prepare($query);
@@ -38,9 +59,10 @@
             $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
             #Bind values to parameters in the prepared statement
-            $stm->bindValue(':first_name', $first_name);
-            $stm->bindValue(':last_name', $last_name);
+            $stm->bindValue(':fname', $first_name);
+            $stm->bindValue(':lname', $last_name);
             $stm->bindValue(':email', $email);
+            $stm->bindValue(':phone', $phone);
             $stm->bindValue(':password', $pass_hash);
 
             #Execute query and store true or false based on success
@@ -52,8 +74,17 @@
                 print_r($stm->errorInfo()[2]);
             }
 
+            #Start session
+            session_start();
+
+            #Set variables
+            $_SESSION["account_id"] = $db_data[0]["account_id"];
+            $_SESSION["fname"] = $db_data[0]["fname"];
+            $_SESSION["lname"] = $db_data[0]["lname"];
+            $_SESSION["email"] = $db_data[0]["email"];
+
             #Close this page and redirect to index
-            header("Location: login.html");
+            header("Location: ../../Frontend/Html/index.php");
             exit;
         }
     }else{

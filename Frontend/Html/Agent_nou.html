@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/Frontend/css/AgentVanzari.css">
+    <link rel="stylesheet"  href="/crm/Frontend/css/Agent_nou.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -31,7 +31,6 @@
     </script>
    </head>
 <body>
-  
   <div class="wrapper">
     <div class="navbar">
       <div class="navbar_left">
@@ -39,10 +38,7 @@
           
         </div>
       </div>
-      <div class="search-box">
-        <input type ="text" placeholder="Search...">
-        <i class='bx bx-search'></i>
-      </div>
+  
       <div class="navbar_right">
         <div class="notifications">
           <div class="icon_wrap"><i class="far fa-bell"></i></div>
@@ -267,217 +263,89 @@
           </div>
       </div>
     </div>
-    
-  </div>
-  <div class="sidebar">
-    <div class="logo-details">
+    <
       
-      <span class="logo_name">Platforma</span>
-    </div>
-    <ul class="nav-links">
-      <li>
-        <a href="index.html">
-            <i class="fas fa-home"></i>
-          <span class="link_name">Home</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Home</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/AgentVanzari.html">
-            <i class="fas fa-user-tie"></i>
-            <span class="link_name">Agent Vanzari</span>
-          </a>
-         
-        </div>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.html">Agent Vanzari</a></li>
-          
-         
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/Management Clienti.html">
-            <i class="fas fa-user-tag"></i>
-            <span class="link_name">Management Clienti</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href=/Frontend/Html/Management Clienti.html">Management Clienti</a></li>
-          <li><a href="#">Facturi</a></li>
-          <li><a href="#">Contacte</a></li>          
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Management Utilizatori.html">
-            <i class="fas fa-users"></i>
-          <span class="link_name">Management Utilizatori</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Management Utilizatori.html">Management Utilizatori</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Distribuie Materiale.html">
-            <i class="fas fa-share-square"></i>
-          <span class="link_name">Distribuire Materiale</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href=/Frontend/Html/Distribuie Materiale.html">Distribuire Materiale</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/Oferte.html">
-            <i class="fas fa-tags"></i>
-            <span class="link_name">Oferte</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="/Frontend/Html/Oferte.html">Oferte</a></li>
-          <li><a href="#">Discount-uri</a></li>
-          <li><a href="#">Oferte vechi</a></li>
-          <li><a href="#">Cele mai noi oferte</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Produse_servicii.html">
-            <i class="fab fa-product-hunt"></i>
-          <span class="link_name">Produse/Servicii</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Produse_servicii.html">Produse/servicii</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Facturare.html">
-            <i class="fas fa-clipboard-list"></i>
-          <span class="link_name">Facturare</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Facturare.html">Facturare</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Rapoarte.html">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Rapoarte</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href=/Frontend/Html/Rapoarte.html">Rapoarte</a></li>
-        </ul>
-      </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
+      <body>
+        <div class="_buttons">
+            <a href="/crm/Frontend/Html/index.html" class="btn btn-info mright5 test pull-left display-block">Home</a>
+          </div>
+        <div id="wrapper">
         
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Intoarcere</div>
-        <div class="job">Pagina</div>
-      </div>
-      <i class='bx bx-log-out' ></i>
-    </div>
-  </li>
-</ul>
+        <h1>Inregistrare Agent Nou</h1>
+
+        
+        <form onsubmit="return false">
+        <div class="col-2">
+          <label>
+            Nume
+            <input placeholder="Care este numele tau?" id="name" name="name" tabindex="1">
+          </label>
+        </div>
+        <div class="col-2">
+          <label>
+            Prenume
+            <input placeholder="Care este prenumele tau?" id="company" name="company" tabindex="2">
+          </label>
+        </div>
+        
+        <div class="col-3">
+          <label>
+            Email
+            <input placeholder="Care este email-ul tau?" id="phone" name="phone" tabindex="3">
+          </label>
+        </div>
+        <div class="col-3">
+          <label>
+            Numar de telefon:
+            <input placeholder="Care este numarul tau de telefon?" id="email" name="email" tabindex="4">
+          </label>
+        </div>
+        <div class="col-3">
+          <label>
+            Availability
+            <select tabindex="5">
+              <option>5-15 hrs/week</option>
+              <option>15-30 hrs/week</option>
+              <option>30-40 hrs/week</option>
+            </select>
+          </label>
+        </div>
+        
+        <div class="col-4">
+          <label>
+            Grupuri
+            <input placeholder="Enumerați câteva dintre grupurile dvs." id="skills" name="skills" tabindex="6">
+          </label>
+        </div>
+        <div class="col-4">
+          <label>
+            Nr.Produse Vandute
+            <input placeholder="Cate produse ai vandut?" id="experience" name="experience" tabindex="7">
+          </label>
+        </div>
+        <div class="col-4">
+            <label>
+              Data angajare
+              <input placeholder="" id="experience" name="experience" tabindex="7">
+            </label>
+          </div>
+       
+        
+        <div class="col-submit">
+          <button class="submitbtn">Inregistrare Agent</button>
+        </div>
+        
+        </form>
+        </div>
+      <script type="text/javascript">
+      var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+      
+      elems.forEach(function(html) {
+        var switchery = new Switchery(html);
+      });
+      </script>
+      
+     
   </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">Management clienti</span>
-    </div>
-    <table class="content-table">
-      <thead>
-        <tr>
-          <th>Nume</th>
-          <th>Prenume</th>
-          <th>Email</th>
-          <th>Telefon</th>
-          <th>Firme asociate</th>
-          <th>Grupuri</th>
-          <th>Activ</th>
-          
-          <th>Nr.Produse Vandute</th>
-          <th>Data Angajare</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>test</td>
-          <td>Cristi</td>
-          <td>Cristipas@yahoo.com</td>
-          <td>0757014485</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td> <div class="toggle">
-            <input type="checkbox">
-            <label for="" class="onbtn"></label>
-            <label for="" class="ofbtn"></label>
-          </div></td>
-          <td>22332</td>
-          <td>2021-07-14/12:55:22</td>
-          
-        </tr>
-        <tr class="active-row">
-          <td>test1</td>
-          <td>Theo</td>
-          <td>theovale@gmail.com</td>
-          <td>075701433</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td>  <div class="toggle">
-            <input type="checkbox">
-            <label for="" class="onbtn"></label>
-            <label for="" class="ofbtn"></label>
-          </div></td>
-          <td>333332</td>
-          <td>2020-02-12/16:45:12</td>
-          
-        </tr>
-        <tr>
-          <td>test2</td>
-          <td>Eugen</td>
-          <td>StaicuEugen@yahoo.com</td>
-          <td>074118145</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td><div class="toggleBox">
-           
-            <div class="toggle">
-              <input type="checkbox">
-              <label for="" class="onbtn"></label>
-              <label for="" class="ofbtn"></label>
-            </div>
-          </div></td>
-          <td>333332</td>
-          <td>2020-02-12/16:45:12</td>
-        </tr>
-      </tbody>
-    </table>
-  
-  </section>
-
-  <script>
-
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e)=>{
-   let arrowParent = e.target.parentElement.parentElement;
-   arrowParent.classList.toggle("showMenu");
-    });
-  }
-
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  console.log(sidebarBtn);
-  sidebarBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("close");
-  });
-  </script>
 </body>
 </html>

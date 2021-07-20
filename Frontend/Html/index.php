@@ -1,8 +1,16 @@
+<?php
+  session_start();
+  $account_id = $_SESSION["account_id"];
+  $fname = $_SESSION["fname"];
+  $lname = $_SESSION["lname"];
+  $email = $_SESSION["email"];
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/Frontend/css/AgentVanzari.css">
+    <link rel="stylesheet"  href="/crm/Frontend/css/Style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -31,7 +39,6 @@
     </script>
    </head>
 <body>
-  
   <div class="wrapper">
     <div class="navbar">
       <div class="navbar_left">
@@ -39,10 +46,7 @@
           
         </div>
       </div>
-      <div class="search-box">
-        <input type ="text" placeholder="Search...">
-        <i class='bx bx-search'></i>
-      </div>
+  
       <div class="navbar_right">
         <div class="notifications">
           <div class="icon_wrap"><i class="far fa-bell"></i></div>
@@ -138,8 +142,8 @@
         </div>
         <div class="profile">
           <div class="icon_wrap">
-            <img src="/Frontend/Imagini/profile_pic.png" alt="profile_pic">
-            <span class="name">Theo Vale</span>
+            <img src="/crm/Frontend/Imagini/profile_pic.png" alt="profile_pic">
+            <span class="name"><?php echo $fname . " " . $lname; ?></span>
             <i class="fas fa-chevron-down"></i>
           </div>
   
@@ -151,7 +155,7 @@
               </li>
               <li><a class="address" href="#"><span class="picon"><i class="fas fa-map-marker"></i></span>Address</a></li>
               <li><a class="settings" href="#"><span class="picon"><i class="fas fa-cog"></i></span>Settings</a></li>
-              <li><a class="logout" href="/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
+              <li><a class="logout" href="/crm/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
             </ul>
           </div>
         </div>
@@ -276,7 +280,7 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="index.html">
+        <a href="index.php">
             <i class="fas fa-home"></i>
           <span class="link_name">Home</span>
         </a>
@@ -286,15 +290,14 @@
       </li>
       <li>
         <div class="iocn-link">
-          <a href="/Frontend/Html/AgentVanzari.html">
+          <a href="/crm/Frontend/Html/AgentVanzari.php">
             <i class="fas fa-user-tie"></i>
             <span class="link_name">Agent Vanzari</span>
           </a>
          
         </div>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.html">Agent Vanzari</a></li>
-          
+          <li><a class="link_name" href="/crm/Frontend/Html/AgentVanzari.php">Agent Vanzari</a></li>
          
         </ul>
       </li>
@@ -389,76 +392,8 @@
   <section class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Management clienti</span>
+      <span class="text">Platforma Management al Afacerii Tale</span>
     </div>
-    <table class="content-table">
-      <thead>
-        <tr>
-          <th>Nume</th>
-          <th>Prenume</th>
-          <th>Email</th>
-          <th>Telefon</th>
-          <th>Firme asociate</th>
-          <th>Grupuri</th>
-          <th>Activ</th>
-          
-          <th>Nr.Produse Vandute</th>
-          <th>Data Angajare</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>test</td>
-          <td>Cristi</td>
-          <td>Cristipas@yahoo.com</td>
-          <td>0757014485</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td> <div class="toggle">
-            <input type="checkbox">
-            <label for="" class="onbtn"></label>
-            <label for="" class="ofbtn"></label>
-          </div></td>
-          <td>22332</td>
-          <td>2021-07-14/12:55:22</td>
-          
-        </tr>
-        <tr class="active-row">
-          <td>test1</td>
-          <td>Theo</td>
-          <td>theovale@gmail.com</td>
-          <td>075701433</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td>  <div class="toggle">
-            <input type="checkbox">
-            <label for="" class="onbtn"></label>
-            <label for="" class="ofbtn"></label>
-          </div></td>
-          <td>333332</td>
-          <td>2020-02-12/16:45:12</td>
-          
-        </tr>
-        <tr>
-          <td>test2</td>
-          <td>Eugen</td>
-          <td>StaicuEugen@yahoo.com</td>
-          <td>074118145</td>
-          <td>QFort</td>
-          <td>da</td>
-          <td><div class="toggleBox">
-           
-            <div class="toggle">
-              <input type="checkbox">
-              <label for="" class="onbtn"></label>
-              <label for="" class="ofbtn"></label>
-            </div>
-          </div></td>
-          <td>333332</td>
-          <td>2020-02-12/16:45:12</td>
-        </tr>
-      </tbody>
-    </table>
   
   </section>
 
