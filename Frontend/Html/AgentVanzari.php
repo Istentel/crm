@@ -175,10 +175,7 @@
   
           <div class="profile_dd">
             <ul class="profile_ul">
-              <li class="profile_li"><a class="profile" href="#"><span class="picon"><i class="fas fa-user-alt"></i>
-                  </span>Profile</a>
-                <div class="btn">My Account</div>
-              </li>
+              <li class="profile_li"><a class="profile" href="#"><span class="picon"><i class="fas fa-user-alt"></i></span>Profile</a></li>
               <li><a class="address" href="#"><span class="picon"><i class="fas fa-map-marker"></i></span>Address</a></li>
               <li><a class="settings" href="#"><span class="picon"><i class="fas fa-cog"></i></span>Settings</a></li>
               <li><a class="logout" href="/crm/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
@@ -422,8 +419,7 @@
     </div>
     <div class="buttons">
           <a href="/crm/Frontend/Html/Agent_nou.html" class="btn btn-info pull-left">Agent Nou</a>
-          <a href="crm/Frontend/Html/Agent_import.html" class="btn btn-info pull-left">Agent Import</a>
-          <a href="/crm/Frontend/Html/Contact_agent.html" class="btn btn-info pull-left">Contacte</a>
+          <a href="/crm/Frontend/Html/Agent_import.html" class="btn btn-info pull-left">Agent Import</a>
     </div> 
     <table class="content-table">
       <thead>

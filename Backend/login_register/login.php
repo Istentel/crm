@@ -1,4 +1,5 @@
 <?php
+    session_destroy();
     if(isset($_POST["submit"])){
         #1.Get data from site
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);

@@ -149,9 +149,7 @@
   
           <div class="profile_dd">
             <ul class="profile_ul">
-              <li class="profile_li"><a class="profile" href="#"><span class="picon"><i class="fas fa-user-alt"></i>
-                  </span>Profile</a>
-                <div class="btn">My Account</div>
+              <li class="profile_li"><a class="profile" href="#"><span class="picon"><i class="fas fa-user-alt"></i></span>Profile</a>
               </li>
               <li><a class="address" href="#"><span class="picon"><i class="fas fa-map-marker"></i></span>Address</a></li>
               <li><a class="settings" href="#"><span class="picon"><i class="fas fa-cog"></i></span>Settings</a></li>

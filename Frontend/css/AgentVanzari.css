@@ -563,15 +563,6 @@ text-align: center;
   font-weight: 600;
 }
 
-/* cristi test code  */
-
-.home-section.buttons.btn{
-  size: 50px;
-  color: red;
-  background: red;
-}
-
-
 .content-table {
   border-collapse: collapse;
   margin: 55px 0;
@@ -676,7 +667,7 @@ label {
     margin-right: 5px;
 }
 
-/* .btn {
+.btn {
     text-transform: uppercase;
     font-size: 13.5px;
     outline-offset: 0;
@@ -739,4 +730,4 @@ a {
 }
 a {
     background-color: transparent;
-} */
+} 
