@@ -311,8 +311,8 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href=/Frontend/Html/Management Clienti.html">Management Clienti</a></li>
-          <li><a href="#">Clienti noi</a></li>
-          <li><a href="#">Clienti vechi</a></li>          
+          <li><a href="#">Facturi</a></li>
+          <li><a href="#">Contacte</a></li>          
         </ul>
       </li>
       <li>

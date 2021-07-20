@@ -1,38 +1,8 @@
-<?php
-  session_start();
-  $account_id = $_SESSION["account_id"];
-  $fname = $_SESSION["fname"];
-  $lname = $_SESSION["lname"];
-  $email = $_SESSION["email"];
-
-  #Connect to the database
-  require('../../Backend/connect.php');
-
-  #Get clients names
-  #Define the querry
-  $query_agenti = 'SELECT * FROM sellersagent WHERE id=:id';
-
-  #Prepare statement to execute 
-  #This creates a PDOStatement object
-  $agenti_statement = $db->prepare($query_agenti);
-
-  $agenti_statement->bindValue(":id", $account_id);
-
-  #Execute the query
-  $agenti_statement->execute();
-
-  #Return an array containing the query results
-  $agenti_data = $agenti_statement->fetchAll();
-
-  #Allow new sql statements to execute
-  $agenti_statement->closeCursor();
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/crm/Frontend/css/AgentVanzari.css">
+    <link rel="stylesheet"  href="/Frontend/css/Contact_Agent.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -168,8 +138,8 @@
         </div>
         <div class="profile">
           <div class="icon_wrap">
-            <img src="/crm/Frontend/Imagini/profile_pic.png" alt="profile_pic">
-            <span class="name"><?php echo $fname . " " . $lname; ?></span>
+            <img src="/Frontend/Imagini/profile_pic.png" alt="profile_pic">
+            <span class="name">Theo Vale</span>
             <i class="fas fa-chevron-down"></i>
           </div>
   
@@ -181,7 +151,7 @@
               </li>
               <li><a class="address" href="#"><span class="picon"><i class="fas fa-map-marker"></i></span>Address</a></li>
               <li><a class="settings" href="#"><span class="picon"><i class="fas fa-cog"></i></span>Settings</a></li>
-              <li><a class="logout" href="/crm/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
+              <li><a class="logout" href="/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
             </ul>
           </div>
         </div>
@@ -297,187 +267,101 @@
           </div>
       </div>
     </div>
-    
-  </div>
-  <div class="sidebar">
-    <div class="logo-details">
-      
-      <span class="logo_name">Platforma</span>
-    </div>
-    <ul class="nav-links">
-      <li>
-        <a href="index.php">
-            <i class="fas fa-home"></i>
-          <span class="link_name">Home</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Home</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/AgentVanzari.php">
-            <i class="fas fa-user-tie"></i>
-            <span class="link_name">Agent Vanzari</span>
-          </a>
-         
-        </div>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/AgentVanzari.php">Agent Vanzari</a></li>
-         
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/Management Clienti.html">
-            <i class="fas fa-user-tag"></i>
-            <span class="link_name">Management Clienti</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href=/Frontend/Html/Management Clienti.html">Management Clienti</a></li>
-          <li><a href="#">Facturi</a></li>
-          <li><a href="#">Contacte</a></li>          
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Management Utilizatori.html">
-            <i class="fas fa-users"></i>
-          <span class="link_name">Management Utilizatori</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Management Utilizatori.html">Management Utilizatori</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Distribuie Materiale.html">
-            <i class="fas fa-share-square"></i>
-          <span class="link_name">Distribuire Materiale</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href=/Frontend/Html/Distribuie Materiale.html">Distribuire Materiale</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="/Frontend/Html/Oferte.html">
-            <i class="fas fa-tags"></i>
-            <span class="link_name">Oferte</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="/Frontend/Html/Oferte.html">Oferte</a></li>
-          <li><a href="#">Discount-uri</a></li>
-          <li><a href="#">Oferte vechi</a></li>
-          <li><a href="#">Cele mai noi oferte</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Produse_servicii.html">
-            <i class="fab fa-product-hunt"></i>
-          <span class="link_name">Produse/Servicii</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Produse_servicii.html">Produse/servicii</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Facturare.html">
-            <i class="fas fa-clipboard-list"></i>
-          <span class="link_name">Facturare</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/Frontend/Html/Facturare.html">Facturare</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/Frontend/Html/Rapoarte.html">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Rapoarte</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href=/Frontend/Html/Rapoarte.html">Rapoarte</a></li>
-        </ul>
-      </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
-        
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Intoarcere</div>
-        <div class="job">Pagina</div>
-      </div>
-      <i class='bx bx-log-out' ></i>
-    </div>
-  </li>
-</ul>
-  </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">Agent Vanzari</span>
-    </div>
-    <div class="buttons">
-          <a href="/crm/Frontend/Html/Agent_nou.html" class="btn btn-info pull-left">Agent Nou</a>
-          <a href="crm/Frontend/Html/Agent_import.html" class="btn btn-info pull-left">Agent Import</a>
-          <a href="/crm/Frontend/Html/Contact_agent.html" class="btn btn-info pull-left">Contacte</a>
-    </div> 
-    <table class="content-table">
-      <thead>
-        <tr>
-          <th>Nume</th>
-          <th>Prenume</th>
-          <th>Email</th>
-          <th>Telefon</th>
-          <th>Firme asociate</th>
-          <th>Grupuri</th>
-          <th>Activ</th>
+    <section class="home-section">
+        <div class="home-content">
           
-          <th>Nr.Produse Vandute</th>
-          <th>Data Angajare</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach($agenti_data as $data) :?>
-          <tr class="active-row">
-            <td><?php echo $data['first_name']; ?></td>
-            <td><?php echo $data['last_name']; ?></td>
-            <td><?php echo $data['email']; ?></td>
-            <td><?php echo $data['phone']; ?></td>
-            <td><?php echo $data['firme_asociate']; ?></td>
-            <td><?php echo $data['grupuri']; ?></td>
-            <td> <div class="toggle">
-              <input type="checkbox" <?php if($data['activ']) echo 'checked';?>>
-              <label for="" class="onbtn"></label>
-              <label for="" class="ofbtn"></label>
-            </div></td>
-            <td><?php echo $data['prod_vandute']; ?></td>
-            <td><?php echo $data['data_angajare']; ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
-  </section>
-
-  <script>
-
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e)=>{
-   let arrowParent = e.target.parentElement.parentElement;
-   arrowParent.classList.toggle("showMenu");
-    });
-  }
-
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  console.log(sidebarBtn);
-  sidebarBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("close");
-  });
-  </script>
-</body>
-</html>
+          <span class="text">Contacte</span>
+        </div>
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>Nume</th>
+              <th>Prenume</th>
+              <th>Email</th>
+              <th>Telefon</th>
+              <th>Firme asociate</th>
+              <th>Grupuri</th>
+              <th>Activ</th>
+              
+              <th>Nr.Produse Vandute</th>
+              <th>Data Angajare</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>test</td>
+              <td>Cristi</td>
+              <td>Cristipas@yahoo.com</td>
+              <td>0757014485</td>
+              <td>QFort</td>
+              <td>da</td>
+              <td> <div class="toggle">
+                <input type="checkbox">
+                <label for="" class="onbtn"></label>
+                <label for="" class="ofbtn"></label>
+              </div></td>
+              <td>22332</td>
+              <td>2021-07-14/12:55:22</td>
+              
+            </tr>
+            <tr class="active-row">
+              <td>test1</td>
+              <td>Theo</td>
+              <td>theovale@gmail.com</td>
+              <td>075701433</td>
+              <td>QFort</td>
+              <td>da</td>
+              <td>  <div class="toggle">
+                <input type="checkbox">
+                <label for="" class="onbtn"></label>
+                <label for="" class="ofbtn"></label>
+              </div></td>
+              <td>333332</td>
+              <td>2020-02-12/16:45:12</td>
+              
+            </tr>
+            <tr>
+              <td>test2</td>
+              <td>Eugen</td>
+              <td>StaicuEugen@yahoo.com</td>
+              <td>074118145</td>
+              <td>QFort</td>
+              <td>da</td>
+              <td><div class="toggleBox">
+               
+                <div class="toggle">
+                  <input type="checkbox">
+                  <label for="" class="onbtn"></label>
+                  <label for="" class="ofbtn"></label>
+                </div>
+              </div></td>
+              <td>333332</td>
+              <td>2020-02-12/16:45:12</td>
+              <div class="dataTables_length" id="DataTables_Table_0_length">
+                  <label><select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="-1">All</option>
+                </select></label></div>
+            </div>      
+            </tr>
+          </tbody>
+        </table>
+      
+      </section>
+    
+      
+    <script type="text/javascript">
+      var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+      
+      elems.forEach(function(html) {
+        var switchery = new Switchery(html);
+      });
+      </script>
+      
+     
+    </body>
+    </html>
+    
