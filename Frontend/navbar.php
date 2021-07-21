@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/crm/Frontend/css/Agent_nou.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script>
-      $(document).ready(function(){
-        $(".profile .icon_wrap").click(function(){
-          $(this).parent().toggleClass("active");
-          $(".notifications").removeClass("active");
-        });
-  
-        $(".notifications .icon_wrap").click(function(){
-          $(this).parent().toggleClass("active");
-           $(".profile").removeClass("active");
-        });
-  
-        $(".show_all .link").click(function(){
-          $(".notifications").removeClass("active");
-          $(".popup").show();
-        });
-  
-        $(".close").click(function(){
-          $(".popup").hide();
-        });
-      });
-    </script>
-   </head>
-<body>
-  <div class="wrapper">
+<div class="wrapper">
     <div class="navbar">
       <div class="navbar_left">
         <div class="logo">
@@ -134,20 +101,17 @@
         </div>
         <div class="profile">
           <div class="icon_wrap">
-            <img src="/Frontend/Imagini/profile_pic.png" alt="profile_pic">
-            <span class="name">Theo Vale</span>
+            <img src="/crm/Frontend/Imagini/profile_pic.png" alt="profile_pic">
+            <span class="name"><?php echo $fname . " " . $lname; ?></span>
             <i class="fas fa-chevron-down"></i>
           </div>
   
           <div class="profile_dd">
             <ul class="profile_ul">
-              <li class="profile_li"><a class="profile" href="#"><span class="picon"><i class="fas fa-user-alt"></i>
-                  </span>Profile</a>
-                <div class="btn">My Account</div>
-              </li>
+              <li class="profile_li"><a class="profile" href="Login.html"><span class="picon"><i class="fas fa-user-alt"></i></span>Profile</a></li>
               <li><a class="address" href="#"><span class="picon"><i class="fas fa-map-marker"></i></span>Address</a></li>
               <li><a class="settings" href="#"><span class="picon"><i class="fas fa-cog"></i></span>Settings</a></li>
-              <li><a class="logout" href="/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
+              <li><a class="logout" href="/crm/Frontend/Login.html"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
             </ul>
           </div>
         </div>
@@ -263,89 +227,5 @@
           </div>
       </div>
     </div>
-    <
-      
-      <body>
-        <div class="_buttons">
-            <a href="/crm/Frontend/Html/index.html" class="btn btn-info mright5 test pull-left display-block">Home</a>
-          </div>
-        <div id="wrapper">
-        
-        <h1>Inregistrare Agent Nou</h1>
-
-        
-        <form onsubmit="return false">
-        <div class="col-2">
-          <label>
-            Nume
-            <input placeholder="Care este numele tau?" id="name" name="name" tabindex="1">
-          </label>
-        </div>
-        <div class="col-2">
-          <label>
-            Prenume
-            <input placeholder="Care este prenumele tau?" id="company" name="company" tabindex="2">
-          </label>
-        </div>
-        
-        <div class="col-3">
-          <label>
-            Email
-            <input placeholder="Care este email-ul tau?" id="phone" name="phone" tabindex="3">
-          </label>
-        </div>
-        <div class="col-3">
-          <label>
-            Numar de telefon:
-            <input placeholder="Care este numarul tau de telefon?" id="email" name="email" tabindex="4">
-          </label>
-        </div>
-        <div class="col-3">
-          <label>
-            Availability
-            <select tabindex="5">
-              <option>5-15 hrs/week</option>
-              <option>15-30 hrs/week</option>
-              <option>30-40 hrs/week</option>
-            </select>
-          </label>
-        </div>
-        
-        <div class="col-4">
-          <label>
-            Grupuri
-            <input placeholder="Enumerați câteva dintre grupurile dvs." id="skills" name="skills" tabindex="6">
-          </label>
-        </div>
-        <div class="col-4">
-          <label>
-            Nr.Produse Vandute
-            <input placeholder="Cate produse ai vandut?" id="experience" name="experience" tabindex="7">
-          </label>
-        </div>
-        <div class="col-4">
-            <label>
-              Data angajare
-              <input placeholder="" id="experience" name="experience" tabindex="7">
-            </label>
-          </div>
-       
-        
-        <div class="col-submit">
-          <button class="submitbtn">Inregistrare Agent</button>
-        </div>
-        
-        </form>
-        </div>
-      <script type="text/javascript">
-      var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-      
-      elems.forEach(function(html) {
-        var switchery = new Switchery(html);
-      });
-      </script>
-      
-     
+    
   </div>
-</body>
-</html>
