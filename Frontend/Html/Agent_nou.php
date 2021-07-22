@@ -58,7 +58,7 @@
       <h1>Inregistrare Agent Nou</h1>
       
       <form action="/crm/Backend/sellers_agent/add_agent.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $account_id; ?>">
+        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
         <div class="col-2">
           <label>
             Nume
@@ -106,7 +106,7 @@
         <div class="col-4">
             <label>
               Data angajare
-              <input type="datetime-local" id="data" name="data" tabindex="8">
+              <input type="date" id="data" name="data" tabindex="8">
             </label>
           </div>
         

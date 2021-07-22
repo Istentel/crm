@@ -113,7 +113,7 @@
             </div></td>
             <td><?php echo $data['prod_vandute']; ?></td>
             <td><?php echo $data['data_angajare']; ?></td>
-            <td> <div class="container"><a href="/crm/Frontend/Html/Agent_Nou_Edit.php" class="ctn ctn1">Edit</a>  <br> <a href="#" class="ctn ctn2">Delete</a> </div></td>
+            <td> <div class="container"><a href="/crm/Frontend/Html/Agent_Edit.php?id=<?php echo $data['id']; ?>" class="ctn ctn1">Edit</a>  <br> <a href="/crm/Backend/sellers_agent/delete_agent.php?id=<?php echo $data['id'];; ?>" class="ctn ctn2">Delete</a> </div></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

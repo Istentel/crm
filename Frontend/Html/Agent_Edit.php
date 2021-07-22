@@ -4,7 +4,33 @@
     $fname = $_SESSION["fname"];
     $lname = $_SESSION["lname"];
     $email = $_SESSION["email"];
+
+    $id = $_GET['id'];
+
+    #Connect to the database
+    require('../../Backend/connect.php');
+
+    #Get clients names
+    #Define the querry
+    $qurty_agent = 'SELECT * FROM sellersagent WHERE account_id=:account_id AND id=:id';
+
+    #Prepare statement to execute 
+    #This creates a PDOStatement object
+    $agenti_statement = $db->prepare($qurty_agent);
+
+    $agenti_statement->bindValue(":account_id", $account_id);
+    $agenti_statement->bindValue(":id", $id);
+
+    #Execute the query
+    $agenti_statement->execute();
+
+    #Return an array containing the query results
+    $agent_data = $agenti_statement->fetchAll();
+
+    #Allow new sql statements to execute
+    $agenti_statement->closeCursor();
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -57,56 +83,57 @@
     <div id="frm">
       <h1>Editare Agent </h1>
       
-      <form action="/crm/Backend/sellers_agent/add_agent.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $account_id; ?>">
+      <form action="/crm/Backend/sellers_agent/update_agent.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
         <div class="col-2">
           <label>
             Nume
-            <input type="text" id="name" name="name" tabindex="1">
+            <input type="text" id="name" name="name" value="<?php echo $agent_data[0]['first_name'] ?>" tabindex="1">
           </label>
         </div>
         <div class="col-2">
           <label>
             Prenume
-            <input type="text" id="prenume" name="prenume" tabindex="2">
+            <input type="text" id="prenume" name="prenume" value="<?php echo $agent_data[0]['last_name'] ?>" tabindex="2">
           </label>
         </div>
         
         <div class="col-3">
           <label>
             Email
-            <input type="email" id="email" name="email" tabindex="3">
+            <input type="email" id="email" name="email" value="<?php echo $agent_data[0]['email'] ?>" tabindex="3">
           </label>
         </div>
         <div class="col-3">
           <label>
             Numar de telefon:
-            <input type="tel" id="phone" name="phone" tabindex="4">
+            <input type="tel" id="phone" name="phone" value="<?php echo $agent_data[0]['phone'] ?>" tabindex="4">
           </label>
         </div>
         <div class="col-3">
           <label>
             Companie
-            <input type="text" id="companie" name="companie" tabindex="5">
+            <input type="text" id="companie" name="companie" value="<?php echo $agent_data[0]['firme_asociate'] ?>" tabindex="5">
           </label>
         </div>
         
         <div class="col-4">
           <label>
             Grupuri
-            <input type="text" id="grup" name="grup" tabindex="6">
+            <input type="text" id="grup" name="grup" value="<?php echo $agent_data[0]['grupuri'] ?>" tabindex="6">
           </label>
         </div>
         <div class="col-4">
           <label>
             Nr.Produse Vandute
-            <input type="number" id="prod_vandute" name="prod_vandute" tabindex="7">
+            <input type="number" id="prod_vandute" name="prod_vandute" value="<?php echo $agent_data[0]['prod_vandute'] ?>" tabindex="7">
           </label>
         </div>
         <div class="col-4">
             <label>
               Data angajare
-              <input type="datetime-local" id="data" name="data" tabindex="8">
+              <input type="date" id="data" name="data" value="<?php echo $agent_data[0]['data_angajare'] ?>" tabindex="8">
             </label>
           </div>
         

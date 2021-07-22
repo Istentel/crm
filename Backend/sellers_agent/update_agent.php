@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST["submit"])){
     #Get data
+    $id = $_POST["id"];
     $account_id = $_POST["account_id"];
     $first_name = filter_input(INPUT_POST, "name");
     $last_name = filter_input(INPUT_POST, "prenume");
@@ -37,12 +38,13 @@ if(isset($_POST["submit"])){
         require_once('../connect.php');
 
         #Create query
-        $query = 'INSERT INTO sellersagent(account_id, first_name, last_name, email, phone, firme_asociate, grupuri, activ, prod_vandute, data_angajare) VALUES(:account_id, :first_name, :last_name, :email, :phone, :firme_asociate, :grupuri, :activ, :prod_vandute, :data_angajare)';
+        $query = 'UPDATE sellersagent SET id=:id, first_name=:first_name, last_name=:last_name, email=:email, phone=:phone, firme_asociate=:firme_asociate, grupuri=:grupuri, activ=:activ, prod_vandute=:prod_vandute, data_angajare=:data_angajare WHERE account_id=:account_id AND id=:id';
         
         #Create a PDOStatement object
         $stm = $db->prepare($query);
 
         #Bind values to parameters in the prepared statement
+        $stm->bindValue(':id', $id);
         $stm->bindValue(':account_id', $account_id);
         $stm->bindValue(':first_name', $first_name);
         $stm->bindValue(':last_name', $last_name);
