@@ -44,12 +44,12 @@
   <!-- Sidebar END -->
   
   <!-- CONTENT START -->
-  <section class="home-section">
+  <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
       <span class="text">Platforma Management al Afacerii Tale</span>
     </div>
-  </section>
+    </div>
   <!-- CONTENT END -->
 
     <!-- Navbar START -->
