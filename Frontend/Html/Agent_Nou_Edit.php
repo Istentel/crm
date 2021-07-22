@@ -55,7 +55,7 @@
   <a href="/crm/Frontend/Html/AgentVanzari.php" class= "btn btn-info pull left">Back</a>
     </div>
     <div id="frm">
-      <h1>Inregistrare Agent Nou</h1>
+      <h1>Editare Agent </h1>
       
       <form action="/crm/Backend/sellers_agent/add_agent.php" method="post">
         <input type="hidden" name="id" value="<?php echo $account_id; ?>">
@@ -112,7 +112,7 @@
         
         
         <div class="col-submit">
-          <input type="submit" name="submit" class="submitbtn">Inregistrare Agent</button>
+          <input type="submit" name="submit" class="submitbtn">Salveaza Modificarile</button>
         </div>
       
       </form>

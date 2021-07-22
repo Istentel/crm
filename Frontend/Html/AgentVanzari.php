@@ -110,7 +110,7 @@
             </div></td>
             <td><?php echo $data['prod_vandute']; ?></td>
             <td><?php echo $data['data_angajare']; ?></td>
-            <td> <a href="#">Edit</a>  <br> <a href="#">Delete</a> </td>
+            <td> <div class="container"><a href="/crm/Frontend/Html/Agent_Nou_Edit.php" class="ctn ctn1">Edit</a>  <br> <a href="#" class="ctn ctn2">Delete</a> </div></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

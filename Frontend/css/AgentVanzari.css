@@ -178,7 +178,9 @@ label {
     user-select: none;
     color:#fff;
    border: 1px solid #fff; 
-   transition: 0.6s ease;
+   transition: 0.8s ;
+   position: relative;
+   overflow: hidden;
 }
 a {
     color: #008ece;
@@ -191,3 +193,26 @@ a {
 a {
     background-color: transparent;
 } 
+
+.container{
+  margin-top:0px;
+}
+.ctn{
+  text-transform: uppercase;
+  font-size: 13.5px;
+  outline-offset: 0;
+  border: 1px solid transparent;
+  transition: all .15s ease-in-out;
+  -o-transition: all .15s ease-in-out;
+  -moz-transition: all .15s ease-in-out;
+  -webkit-transition: all .15s ease-in-out;
+  
+  font-family: "montserrat";
+  margin:10px;
+}
+.ctn1{
+  color:green;
+}
+.ctn2{
+  color:red;
+  }
