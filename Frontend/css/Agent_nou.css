@@ -42,16 +42,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 html { overflow-y: scroll; }
 
-/* atribute deja setate, acest body creeaza buguri */
-/* body {
-  /* font-family: Arial, Tahoma, sans-serif; */
-  /* background: #e2eef4; */ /* nu se vede bine pe fundal */
-  /* font-size: 62.5%;
-  line-height: 1; */
-  /* padding-top: 40px; */ /* creeaza bug */
-
-/*} */
-
 br { display: block; line-height: 1.6em; } 
 
 input, textarea { 

@@ -11,13 +11,13 @@
 
     #Get clients names
     #Define the querry
-    $query_agenti = 'SELECT * FROM sellersagent WHERE id=:id';
+    $query_agenti = 'SELECT * FROM sellersagent WHERE account_id=:account_id';
 
     #Prepare statement to execute 
     #This creates a PDOStatement object
     $agenti_statement = $db->prepare($query_agenti);
 
-    $agenti_statement->bindValue(":id", $account_id);
+    $agenti_statement->bindValue(":account_id", $account_id);
 
     #Execute the query
     $agenti_statement->execute();
@@ -67,7 +67,7 @@
   <!-- Sidebar END -->
   
   <!-- CONTENT START -->
-  <section class="home-section">
+  <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
       <span class="text">Agent Vanzari</span>
@@ -110,11 +110,12 @@
             </div></td>
             <td><?php echo $data['prod_vandute']; ?></td>
             <td><?php echo $data['data_angajare']; ?></td>
+            <td> <a href="#">Edit</a>  <br> <a href="#">Delete</a> </td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
-  </section>
+  </div>
 
   <!-- CONTENT END -->
 
