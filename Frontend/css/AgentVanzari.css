@@ -15,7 +15,7 @@
   font-family: 'Poppins', sans-serif;
 }
 body{
-  background:linear-gradient(135deg, #71b7e6, #b68e59);
+  background:linear-gradient(-250deg, #97bcd5, #a2a5a2);
   color: #fff;
 }
 
@@ -36,8 +36,8 @@ a{
 }
 
 .content-table thead tr {
-  background-color: #009879;
-  color: #ffffff;
+  background-color: #1d1b31;
+  color: #fff;
   text-align: center;
   font-weight: bold;
 }
@@ -48,7 +48,8 @@ a{
 }
 
 .content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #1d1b31;
+  
 }
 input:checked[type="checkbox"] {
   background: #3498db;
@@ -72,7 +73,7 @@ input[type="checkbox"]::before {
   left: 0;
   width: 20px;
   height: 20px;
-  background: #fff;
+  background: #3fff;
   border-radius: 50%;
   transform: scale(1.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -108,16 +109,16 @@ label {
 }
 
 .content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: #90e3f5;
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #030404;
 }
 
 .content-table tbody tr.active-row {
   font-weight: bold;
-  color: #009879;
+  color: #030404;
 }
 
 .display-block {
