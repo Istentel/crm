@@ -27,6 +27,8 @@
 
     #Allow new sql statements to execute
     $agenti_statement->closeCursor();
+
+    
   ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -92,6 +94,7 @@
           <th>Activ</th>
           <th>Nr.Produse Vandute</th>
           <th>Data Angajare</th>
+          <th>Edits</th>
         </tr>
       </thead>
       <tbody>
@@ -104,7 +107,7 @@
             <td><?php echo $data['firme_asociate']; ?></td>
             <td><?php echo $data['grupuri']; ?></td>
             <td> <div class="toggle">
-              <input type="checkbox" <?php if($data['activ']) echo 'checked';?>>
+              <input type="checkbox" id="toggleBtn" onclick="toggleBtn(<?php echo $data['account_id'] . ', ' . $data['id'] . ', ' . $data['activ']; ?>)" <?php if($data['activ']) echo 'checked';?>>
               <label for="" class="onbtn"></label>
               <label for="" class="ofbtn"></label>
             </div></td>
@@ -138,6 +141,15 @@
     sidebarBtn.addEventListener("click", ()=>{
       sidebar.classList.toggle("close");
     });
+
+    function toggleBtn(account_id, id, activ){
+      $.ajax({
+        type: "POST",
+        url:'../../Backend/sellers_agent/changeActivStatus.php',
+        data:{'account_id': account_id, 'id': id, 'activ': activ},
+        success:function(){}
+      });
+    }
   </script>
 </body>
 </html>
