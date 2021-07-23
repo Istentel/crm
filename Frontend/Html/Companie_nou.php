@@ -9,7 +9,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/crm/Frontend/css/Agent_nou.css">
+    <link rel="stylesheet"  href="/crm/Frontend/css/companie_nou.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -52,65 +52,59 @@
     </div>
 
     <div class="back_button">
-      <a href="/crm/Frontend/Html/AgentVanzari.php" class= "btn btn-info pull left">Back</a>
+      <a href="/crm/Frontend/Html/Management Clienti.php" class= "btn btn-info pull left">Back</a>
     </div>
-
     <div id="frm">
-      <h1>Inregistrare Agent Nou</h1>
+      <h1>Firma Noua</h1>
       
-      <form action="/crm/Backend/sellers_agent/add_agent.php" method="post">
+      <form action="/crm/Backend/clienti/add_firma.php" method="post">
         <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
+
         <div class="col-2">
           <label>
-            Nume
-            <input type="text" id="name" name="name" tabindex="1">
+            Companie
+            <input type="text" id="companie" name="companie" tabindex="1">
           </label>
         </div>
-        <div class="col-2">
-          <label>
-            Prenume
-            <input type="text" id="prenume" name="prenume" tabindex="2">
-          </label>
-        </div>
-        
-        <div class="col-3">
-          <label>
-            Email
-            <input type="email" id="email" name="email" tabindex="3">
-          </label>
-        </div>
+
         <div class="col-3">
           <label>
             Numar de telefon:
             <input type="tel" id="phone" name="phone" tabindex="4">
           </label>
         </div>
+
         <div class="col-3">
           <label>
-            Companie
-            <input type="text" id="companie" name="companie" tabindex="5">
+            Grupuri
+            <input type="text" id="grup" name="grup" tabindex="5">
           </label>
         </div>
         
         <div class="col-4">
           <label>
-            Grupuri
-            <input type="text" id="grup" name="grup" tabindex="6">
+            Agent Vanzari
+            <input type="text" id="agent" name="agent" tabindex="6">
           </label>
         </div>
-        <div class="col-4">
-          <label>
-            Nr.Produse Vandute
-            <input type="number" id="prod_vandute" name="prod_vandute" tabindex="7">
-          </label>
-        </div>
+
         <div class="col-4">
             <label>
               Data angajare
               <input type="date" id="data" name="data" tabindex="8">
             </label>
-          </div>
+        </div>
         
+        <hr class="line"> <br>
+
+        <div> <label class="nume_contact" tabindex="9"> Contact principal </label></div>
+
+        <div class="col-2">
+          <label>
+            Companie
+            <input type="text" id="companie" name="companie" tabindex="10">
+          </label>
+        </div>
         
         <div class="col-submit">
           <input type="submit" name="submit" class="submitbtn" value="Inregistrare"></input>
@@ -121,7 +115,6 @@
   </div>
   <!-- CONTENT END -->
 
-</div>
   <!-- Navbar START -->
   <?php include("../navbar.php"); ?>
   <!-- Navbar END -->
