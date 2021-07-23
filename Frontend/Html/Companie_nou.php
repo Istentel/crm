@@ -94,10 +94,16 @@
               <input type="date" id="data" name="data" tabindex="5">
             </label>
         </div>
-        
-        <hr class="line"> <br>
-
-        
+        <div class="col-submit">
+          <input type="submit" name="submit" class="submitbtn" value="Inregistrare"></input>
+        </div>
+      
+      </form>
+      <hr class="line" ><br>
+      <div id="frm">
+      <h1>Firma Noua</h1>
+      <form action="/crm/Backend/clienti/add_firma.php" method="post">
+        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
 
         <div class="col-2">
           <label>
@@ -123,26 +129,24 @@
         <div class="col-3">
           <label>
             Agent Vanzari
-            <input type="text" id="agent" name="agent" tabindex="5">
+            <input type="text" id="agent" name="agent" tabindex="4">
           </label>
         </div>
 
         <div class="col-4">
             <label>
               Data angajare
-              <input type="date" id="data" name="data" tabindex="6">
+              <input type="date" id="data" name="data" tabindex="5">
             </label>
         </div>
-        
-        <hr class="line"> <br>
-
-        
-        
         <div class="col-submit">
-          <input type="submit" name="submit" class="submitbtn" value="Inregistrare"></input>
+          <input type="submit" name="submit" class="submitbtn" value="Confirmare"></input>
         </div>
+     
       
-      </form>
+        </form>
+        </div>
+  </div>
     </div>
   </div>
   <!-- CONTENT END -->
