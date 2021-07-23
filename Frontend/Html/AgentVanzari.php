@@ -27,8 +27,6 @@
 
     #Allow new sql statements to execute
     $agenti_statement->closeCursor();
-
-    
   ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -124,7 +122,7 @@
 
   <!-- Navbar START -->
   <?php include("../navbar.php"); ?>
-  <!-- Navbar END -->
+  <!-- Navbar END --> 
   
   <script>
     let arrow = document.querySelectorAll(".arrow");
