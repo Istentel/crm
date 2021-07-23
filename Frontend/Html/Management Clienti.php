@@ -51,7 +51,12 @@
       <i class='bx bx-menu' ></i>
       <span class="text">Management Clienti</span>
     </div>
-
+    <div class="search-box">
+    <input class="search-txt" type="text" name="" placeholder="Cautare...">
+    <a class="search-btn" href="#">
+      <i class="fas fa-search"></i>
+    </a>
+  </div>
     <div class="buttons">
           <a href="/crm/Frontend/Html/Companie_nou.php" class="btn btn-info pull-left">Adauga Companie</a>
     </div> 

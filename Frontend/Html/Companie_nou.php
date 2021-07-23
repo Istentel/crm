@@ -48,8 +48,9 @@
   <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Agent Vanzari</span>
+      <span class="text">Inregistrare Firma</span>
     </div>
+    
 
     <div class="back_button">
       <a href="/crm/Frontend/Html/Management Clienti.php" class= "btn btn-info pull left">Back</a>
@@ -101,41 +102,41 @@
       </form>
       <hr class="line" ><br>
       <div id="frm">
-      <h1>Firma Noua</h1>
+      <h1>Contact Principal</h1>
       <form action="/crm/Backend/clienti/add_firma.php" method="post">
         <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
 
         <div class="col-2">
           <label>
-            Companie
+            Nume
             <input type="text" id="companie" name="companie" tabindex="1">
           </label>
         </div>
 
         <div class="col-2">
           <label>
-            Numar de telefon:
+            Prenume
             <input type="tel" id="phone" name="phone" tabindex="2">
           </label>
         </div>
 
         <div class="col-3">
           <label>
-            Grupuri
+            Email
             <input type="text" id="grup" name="grup" tabindex="3">
           </label>
         </div>
         
         <div class="col-3">
           <label>
-            Agent Vanzari
+            Nr. de telefon
             <input type="text" id="agent" name="agent" tabindex="4">
           </label>
         </div>
 
         <div class="col-4">
             <label>
-              Data angajare
+              Pozitie
               <input type="date" id="data" name="data" tabindex="5">
             </label>
         </div>
