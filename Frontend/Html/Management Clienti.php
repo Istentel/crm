@@ -49,21 +49,24 @@
   <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Management clienti</span>
+      <span class="text">Management Clienti</span>
     </div>
+
+    <div class="buttons">
+          <a href="/crm/Frontend/Html/Companie_nou.php" class="btn btn-info pull-left">Adauga Companie</a>
+    </div> 
+
     <table class="content-table">
       <thead>
         <tr>
-          <th>Nume</th>
-          <th>Prenume</th>
-          <th>Email</th>
+          <th>Companie</th>
+          <th>Conctact</th>
+          <th>Email Contact</th>
           <th>Telefon</th>
-          <th>Firme asociate</th>
-          <th>Grupuri</th>
           <th>Activ</th>
-          
-          <th>Nr.Produse Vandute</th>
-          <th>Data Angajare</th>
+          <th>Grupuri</th>
+          <th>Agent Vanzari</th>
+          <th>Data</th>
         </tr>
       </thead>
       <tbody>
