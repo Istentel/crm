@@ -48,8 +48,9 @@
   <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Agent Vanzari</span>
+      <span class="text">Inregistrare Firma</span>
     </div>
+    
 
     <div class="back_button">
       <a href="/crm/Frontend/Html/Management Clienti.php" class= "btn btn-info pull left">Back</a>
@@ -67,50 +68,86 @@
           </label>
         </div>
 
-        <div class="col-3">
+        <div class="col-2">
           <label>
             Numar de telefon:
-            <input type="tel" id="phone" name="phone" tabindex="4">
+            <input type="tel" id="phone" name="phone" tabindex="2">
           </label>
         </div>
 
         <div class="col-3">
           <label>
             Grupuri
-            <input type="text" id="grup" name="grup" tabindex="5">
+            <input type="text" id="grup" name="grup" tabindex="3">
           </label>
         </div>
         
-        <div class="col-4">
+        <div class="col-3">
           <label>
             Agent Vanzari
-            <input type="text" id="agent" name="agent" tabindex="6">
+            <input type="text" id="agent" name="agent" tabindex="4">
           </label>
         </div>
 
         <div class="col-4">
             <label>
               Data angajare
-              <input type="date" id="data" name="data" tabindex="8">
+              <input type="date" id="data" name="data" tabindex="5">
             </label>
         </div>
-        
-        <hr class="line"> <br>
-
-        <div> <label class="nume_contact" tabindex="9"> Contact principal </label></div>
-
-        <div class="col-2">
-          <label>
-            Companie
-            <input type="text" id="companie" name="companie" tabindex="10">
-          </label>
-        </div>
-        
         <div class="col-submit">
           <input type="submit" name="submit" class="submitbtn" value="Inregistrare"></input>
         </div>
       
       </form>
+      <hr class="line" ><br>
+      <div id="frm">
+      <h1>Contact Principal</h1>
+      <form action="/crm/Backend/clienti/add_firma.php" method="post">
+        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
+
+        <div class="col-2">
+          <label>
+            Nume
+            <input type="text" id="companie" name="companie" tabindex="1">
+          </label>
+        </div>
+
+        <div class="col-2">
+          <label>
+            Prenume
+            <input type="tel" id="phone" name="phone" tabindex="2">
+          </label>
+        </div>
+
+        <div class="col-3">
+          <label>
+            Email
+            <input type="text" id="grup" name="grup" tabindex="3">
+          </label>
+        </div>
+        
+        <div class="col-3">
+          <label>
+            Nr. de telefon
+            <input type="text" id="agent" name="agent" tabindex="4">
+          </label>
+        </div>
+
+        <div class="col-4">
+            <label>
+              Pozitie
+              <input type="date" id="data" name="data" tabindex="5">
+            </label>
+        </div>
+        <div class="col-submit">
+          <input type="submit" name="submit" class="submitbtn" value="Confirmare"></input>
+        </div>
+     
+      
+        </form>
+        </div>
+  </div>
     </div>
   </div>
   <!-- CONTENT END -->

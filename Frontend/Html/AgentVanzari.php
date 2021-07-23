@@ -61,6 +61,7 @@
     </script>
    </head>
 <body>
+  
 
   <!-- Sidebar START -->
   <?php include("../sidebar.html"); ?>
@@ -72,7 +73,12 @@
       <i class='bx bx-menu' ></i>
       <span class="text">Agent Vanzari</span>
     </div>
-  
+    <div class="search-box">
+    <input class="search-txt" type="text" name="" placeholder="Cautare...">
+    <a class="search-btn" href="#">
+      <i class="fas fa-search"></i>
+    </a>
+  </div>
 
 
     <div class="buttons">
