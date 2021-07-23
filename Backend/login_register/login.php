@@ -52,6 +52,11 @@
             $_SESSION["fname"] = $db_data[0]["fname"];
             $_SESSION["lname"] = $db_data[0]["lname"];
             $_SESSION["email"] = $db_data[0]["email"];
+            if(isset($db_data[0]["img"])){
+                $_SESSION["img"] = $db_data[0]["img"];
+            }else{
+                $_SESSION["img"] = "/crm/Frontend/Imagini/profile_pic.png";
+            }
 
             #Exist this page and redirect to new page
             header("Location: ../../Frontend/Html/index.php");

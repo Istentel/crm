@@ -4,6 +4,7 @@
   $fname = $_SESSION["fname"];
   $lname = $_SESSION["lname"];
   $email = $_SESSION["email"];
+  $img = $_SESSION["img"];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

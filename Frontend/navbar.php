@@ -101,7 +101,7 @@
         </div>
         <div class="profile">
           <div class="icon_wrap">
-            <img src="/crm/Frontend/Imagini/profile_pic.png" alt="profile_pic">
+            <img src="<?php echo $img ?>" alt="profile_pic" style="width:304px;height:228px">
             <span class="name"><?php echo $fname . " " . $lname; ?></span>
             <i class="fas fa-chevron-down"></i>
           </div>
