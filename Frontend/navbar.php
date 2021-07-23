@@ -5,9 +5,7 @@
           
         </div>
       </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
+      
 
       <div class="navbar_right">
         <div class="notifications">

@@ -67,44 +67,76 @@
           </label>
         </div>
 
-        <div class="col-3">
+        <div class="col-2">
           <label>
             Numar de telefon:
-            <input type="tel" id="phone" name="phone" tabindex="4">
+            <input type="tel" id="phone" name="phone" tabindex="2">
           </label>
         </div>
 
         <div class="col-3">
           <label>
             Grupuri
-            <input type="text" id="grup" name="grup" tabindex="5">
+            <input type="text" id="grup" name="grup" tabindex="3">
           </label>
         </div>
         
-        <div class="col-4">
+        <div class="col-3">
           <label>
             Agent Vanzari
-            <input type="text" id="agent" name="agent" tabindex="6">
+            <input type="text" id="agent" name="agent" tabindex="4">
           </label>
         </div>
 
         <div class="col-4">
             <label>
               Data angajare
-              <input type="date" id="data" name="data" tabindex="8">
+              <input type="date" id="data" name="data" tabindex="5">
             </label>
         </div>
         
         <hr class="line"> <br>
 
-        <div> <label class="nume_contact" tabindex="9"> Contact principal </label></div>
+        
 
         <div class="col-2">
           <label>
             Companie
-            <input type="text" id="companie" name="companie" tabindex="10">
+            <input type="text" id="companie" name="companie" tabindex="1">
           </label>
         </div>
+
+        <div class="col-2">
+          <label>
+            Numar de telefon:
+            <input type="tel" id="phone" name="phone" tabindex="2">
+          </label>
+        </div>
+
+        <div class="col-3">
+          <label>
+            Grupuri
+            <input type="text" id="grup" name="grup" tabindex="3">
+          </label>
+        </div>
+        
+        <div class="col-3">
+          <label>
+            Agent Vanzari
+            <input type="text" id="agent" name="agent" tabindex="5">
+          </label>
+        </div>
+
+        <div class="col-4">
+            <label>
+              Data angajare
+              <input type="date" id="data" name="data" tabindex="6">
+            </label>
+        </div>
+        
+        <hr class="line"> <br>
+
+        
         
         <div class="col-submit">
           <input type="submit" name="submit" class="submitbtn" value="Inregistrare"></input>
