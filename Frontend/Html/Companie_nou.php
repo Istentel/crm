@@ -55,7 +55,7 @@
     <div class="back_button">
       <a href="/crm/Frontend/Html/Management Clienti.php" class= "btn btn-info pull left">Back</a>
     </div>
-    <div id="frm">
+    <div class="frm">
       <h1>Firma Noua</h1>
       
       <form action="/crm/Backend/clienti/add_firma.php" method="post">
@@ -101,7 +101,7 @@
       
       </form>
       <hr class="line" ><br>
-      <div id="frm">
+      <div class="frm">
       <h1>Contact Principal</h1>
       <form action="/crm/Backend/clienti/add_firma.php" method="post">
         <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
