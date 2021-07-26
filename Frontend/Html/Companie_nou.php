@@ -58,96 +58,94 @@
     <div class="frm">
       <h1>Firma Noua</h1>
       
-      <form action="/crm/Backend/clienti/add_firma.php" method="post">
+      <form action="/crm/Backend/clienti/add_companie.php" method="post" id="frm1">
         <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
 
         <div class="col-2">
           <label>
-            Companie
-            <input type="text" id="companie" name="companie" tabindex="1">
+            Companie:*
+            <input type="text" id="companie" name="companie" tabindex="1" required>
           </label>
         </div>
 
         <div class="col-2">
           <label>
-            Numar de telefon:
-            <input type="tel" id="phone" name="phone" tabindex="2">
+            Numar de telefon:*
+            <input type="tel" id="phone" name="phone" tabindex="2" required>
           </label>
         </div>
 
         <div class="col-3">
           <label>
-            Grupuri
-            <input type="text" id="grup" name="grup" tabindex="3">
+            Grupuri:
+            <input list="grup" name="grup" tabindex="3">
+
+            <datalist id="grup">
+              <option value="Vip"></option>
+              <option value="Low Buget"></option>
+              <option value="High Budget"></option>
+              <option value="Wholesaler"></option>
+            </datalist>
+
           </label>
         </div>
         
         <div class="col-3">
           <label>
-            Agent Vanzari
+            Agent Vanzari:*
             <input type="text" id="agent" name="agent" tabindex="4">
           </label>
         </div>
 
-        <div class="col-4">
+        <div class="col-3">
             <label>
-              Data angajare
-              <input type="date" id="data" name="data" tabindex="5">
+              Data angajare:*
+              <input type="date" id="data" name="data" tabindex="5" required>
+            </label>
+        </div>
+
+        <hr style="margin-top: 50px;">
+
+        <div class="col-2">
+          <label>
+            Nume:
+            <input type="text" id="nume" name="nume" tabindex="6">
+          </label>
+        </div>
+
+        <div class="col-2">
+          <label>
+            Prenume:
+            <input type="text" id="prenume" name="prenume" tabindex="7">
+          </label>
+        </div>
+
+        <div class="col-3">
+          <label>
+            Email:
+            <input type="email" id="email" name="email" tabindex="8">
+          </label>
+        </div>
+        
+        <div class="col-3">
+          <label>
+            Nr. de telefon:
+            <input type="tel" id="phone_agent" name="phone_agent" tabindex="9">
+          </label>
+        </div>
+
+        <div class="col-3">
+            <label>
+              Pozitie:
+              <input type="text" id="pozitie" name="pozitie" tabindex="10">
             </label>
         </div>
         <div class="col-submit">
           <input type="submit" name="submit" class="submitbtn" value="Inregistrare"></input>
         </div>
-      
+
       </form>
-      <hr class="line" ><br>
-      <div class="frm">
-      <h1>Contact Principal</h1>
-      <form action="/crm/Backend/clienti/add_firma.php" method="post">
-        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
-
-        <div class="col-2">
-          <label>
-            Nume
-            <input type="text" id="companie" name="companie" tabindex="1">
-          </label>
-        </div>
-
-        <div class="col-2">
-          <label>
-            Prenume
-            <input type="tel" id="phone" name="phone" tabindex="2">
-          </label>
-        </div>
-
-        <div class="col-3">
-          <label>
-            Email
-            <input type="text" id="grup" name="grup" tabindex="3">
-          </label>
-        </div>
-        
-        <div class="col-3">
-          <label>
-            Nr. de telefon
-            <input type="text" id="agent" name="agent" tabindex="4">
-          </label>
-        </div>
-
-        <div class="col-4">
-            <label>
-              Pozitie
-              <input type="date" id="data" name="data" tabindex="5">
-            </label>
-        </div>
-        <div class="col-submit">
-          <input type="submit" name="submit" class="submitbtn" value="Confirmare"></input>
-        </div>
-     
       
-        </form>
-        </div>
-  </div>
     </div>
   </div>
   <!-- CONTENT END -->

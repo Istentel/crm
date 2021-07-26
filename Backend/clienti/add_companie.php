@@ -1,8 +1,16 @@
 <?php
     if(isset($_POST["submit"])){
         $companie = filter_input(INPUT_POST, "companie");
-        $telefon = filter_input(INPUT_POST, "telefon");
+        $telefon = filter_input(INPUT_POST, "phone");
         $grup = filter_input(INPUT_POST, "grup");
+        $data = filter_input(INPUT_POST, "data");
+        
+        $nume = filter_input(INPUT_POST, "nume");
+        $prenume = filter_input(INPUT_POST, "prenume");
+        $email = filter_input(INPUT_POST, "email");
+        $phone_agent = filter_input(INPUT_POST, "phone_agent");
+        $pozitie = filter_input(INPUT_POST, "pozitie");
+        
 
         if($companie == null || $telefon == null){
             $err_msg = "All Values Not Entered<br>";
