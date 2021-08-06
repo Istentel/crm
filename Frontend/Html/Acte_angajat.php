@@ -1,41 +1,22 @@
 <?php
     session_start();
-    $account_id = $_SESSION["account_id"];
-    $fname = $_SESSION["fname"];
-    $lname = $_SESSION["lname"];
-    $email = $_SESSION["email"];
-
     $id = $_GET['id'];
+    $fname = $_SESSION["nume"];
+    $lname = $_SESSION["prenume"];
+    $email = $_SESSION["email"];
+    $account_type = $_SESSION["account_type"];
 
-    #Connect to the database
-    require('../../Backend/connect.php');
-
-    #Get clients names
-    #Define the querry
-    $qurty_agent = 'SELECT * FROM sellersagent WHERE account_id=:account_id AND id=:id';
-
-    #Prepare statement to execute 
-    #This creates a PDOStatement object
-    $agenti_statement = $db->prepare($qurty_agent);
-
-    $agenti_statement->bindValue(":account_id", $account_id);
-    $agenti_statement->bindValue(":id", $id);
-
-    #Execute the query
-    $agenti_statement->execute();
-
-    #Return an array containing the query results
-    $agent_data = $agenti_statement->fetchAll();
-
-    #Allow new sql statements to execute
-    $agenti_statement->closeCursor();
+    if(!preg_match("/[0-9]$/", $id)){
+      $err_msg = "id invalid<br>";
+      include('/crm/backend/error.php');
+  }
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/crm/Frontend/css/Agent_nou.css">
+    <title>Acte angajat</title>
+    <link rel="stylesheet"  href="/crm/Frontend/css/Acte_angajat.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -71,80 +52,78 @@
   <!-- Sidebar END -->
 
   <!-- CONTENT START-->
-  <section class="home-section">
+  <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Agent Vanzari</span>
+      <span class="text">Acte angajat</span>
     </div>
+
     <div class="back_button">
-      
-  <a href="/crm/Frontend/Html/AgentVanzari.php" class= "btn btn-info pull left">Back</a>
+      <a href="/crm/Frontend/Html/Angajat_nou.php" class= "btn btn-info pull left">Back</a>
     </div>
+
     <div id="frm">
-      <h1>Editare Agent </h1>
+      <h1>Acte Angajat</h1>
       
-      <form action="/crm/Backend/sellers_agent/update_agent.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
+      <form action="/crm/Backend/angajati/add_acte.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $id ?>">
         <div class="col-2">
           <label>
-            Nume
-            <input type="text" id="name" name="name" value="<?php echo $agent_data[0]['first_name'] ?>" tabindex="1">
+            C.N.P:
+            <input type="text" id="cnp" name="cnp" tabindex="1">
           </label>
         </div>
+
         <div class="col-2">
           <label>
-            Prenume
-            <input type="text" id="prenume" name="prenume" value="<?php echo $agent_data[0]['last_name'] ?>" tabindex="2">
+            Seria:
+            <input type="text" id="seria" name="seria" tabindex="2">
           </label>
         </div>
         
         <div class="col-3">
           <label>
-            Email
-            <input type="email" id="email" name="email" value="<?php echo $agent_data[0]['email'] ?>" tabindex="3">
+            N.R:
+            <input type="text" id="nr" name="nr" tabindex="3">
           </label>
         </div>
+
         <div class="col-3">
-          <label>
-            Numar de telefon:
-            <input type="tel" id="phone" name="phone" value="<?php echo $agent_data[0]['phone'] ?>" tabindex="4">
-          </label>
-        </div>
-        <div class="col-3">
-          <label>
-            Companie
-            <input type="text" id="companie" name="companie" value="<?php echo $agent_data[0]['firme_asociate'] ?>" tabindex="5">
-          </label>
+          <label> Sex: </label>
+          <select name="sex" id="sex" tabindex="4">
+            <option value="m"> Barbat </option>
+            <option value="f"> Femeie </option>
+          </select>
         </div>
         
-        <div class="col-4">
+        <div class="col-3">
           <label>
-            Grupuri
-            <input type="text" id="grup" name="grup" value="<?php echo $agent_data[0]['grupuri'] ?>" tabindex="6">
+            Cetatenie:
+            <input type="text" id="cetatenie" name="cetatenie" tabindex="5">
           </label>
         </div>
+
         <div class="col-4">
           <label>
-            Nr.Produse Vandute
-            <input type="number" id="prod_vandute" name="prod_vandute" value="<?php echo $agent_data[0]['prod_vandute'] ?>" tabindex="7">
+            Loc Nastere:
+            <input type="text" id="loc_nastere" name="loc_nastere" tabindex="6">
           </label>
         </div>
+
         <div class="col-4">
-            <label>
-              Data angajare
-              <input type="date" id="data" name="data" value="<?php echo $agent_data[0]['data_angajare'] ?>" tabindex="8">
-            </label>
-          </div>
-        
+        <label>
+            Adresa:
+            <input type="text" id="adresa" name="adresa" tabindex="6">
+          </label>
+        </div>
         
         <div class="col-submit">
-          <input type="submit" name="submit" class="submitbtn">Salveaza Modificarile</button>
+          <input type="submit" name="submit" class="submitbtn" value="Adauga"></input>
         </div>
       
       </form>
     </div>
-  </section>
+  </div>
   <!-- CONTENT END -->
 
 </div>

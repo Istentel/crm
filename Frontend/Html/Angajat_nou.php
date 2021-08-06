@@ -1,15 +1,16 @@
 <?php
     session_start();
-    $account_id = $_SESSION["account_id"];
-    $fname = $_SESSION["fname"];
-    $lname = $_SESSION["lname"];
+    $fname = $_SESSION["nume"];
+    $lname = $_SESSION["prenume"];
     $email = $_SESSION["email"];
+    $account_id = $_SESSION["account_type"];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/crm/Frontend/css/Agent_nou.css">
+    <title>Angajat Nou</title>
+    <link rel="stylesheet"  href="/crm/Frontend/css/Angajat_nou.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -48,22 +49,21 @@
   <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Agent Vanzari</span>
+      <span class="text">Angajat Nou</span>
     </div>
 
     <div class="back_button">
-      <a href="/crm/Frontend/Html/AgentVanzari.php" class= "btn btn-info pull left">Back</a>
+      <a href="/crm/Frontend/Html/Angajati.php" class= "btn btn-info pull left">Back</a>
     </div>
 
     <div id="frm">
-      <h1>Inregistrare Agent Nou</h1>
+      <h1>Inregistrare Angajat Nou</h1>
       
-      <form action="/crm/Backend/sellers_agent/add_agent.php" method="post">
-        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
+      <form action="/crm/Backend/angajati/add_angajat.php" method="post">
         <div class="col-2">
           <label>
             Nume
-            <input type="text" id="name" name="name" tabindex="1">
+            <input type="text" id="nume" name="nume" tabindex="1">
           </label>
         </div>
         <div class="col-2">
@@ -82,28 +82,36 @@
         <div class="col-3">
           <label>
             Numar de telefon:
-            <input type="tel" id="phone" name="phone" tabindex="4">
-          </label>
-        </div>
-        <div class="col-3">
-          <label>
-            Companie
-            <input type="text" id="companie" name="companie" tabindex="5">
+            <input type="tel" id="telefon" name="telefon" tabindex="4">
           </label>
         </div>
         
-        <div class="col-4">
+        <div class="col-3">
           <label>
-            Grupuri
-            <input type="text" id="grup" name="grup" tabindex="6">
+            Salariu
+            <input type="number" id="salariu" name="salariu" tabindex="5">
           </label>
         </div>
         <div class="col-4">
-          <label>
-            Nr.Produse Vandute
-            <input type="number" id="prod_vandute" name="prod_vandute" tabindex="7">
-          </label>
+          <label for="nivel"> Nivel </label>
+            
+          <select name="nivel_angajat" id="nivel_angajat" tabindex="6">
+            <option value="Experimentat"> Experimentat </option>
+            <option value="Mediu"> Mediu </option>
+            <option value="Incepator"> Incepator </option>
+          </select>
         </div>
+
+        <div class="col-4">
+          <label for="departament"> Departament </label>
+            
+          <select name="departament_angajat" id="departament_angajat" tabindex="7">
+            <?php foreach($departamente as $departament) :  ?>
+              <option value="<?php echo $departament[0]['id_departament'] ?>"> <?php echo $departament[0]['nume'] ?> </option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+
         <div class="col-4">
             <label>
               Data angajare

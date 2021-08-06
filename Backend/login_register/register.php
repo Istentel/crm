@@ -50,7 +50,7 @@
             }
 
             #Create query for insertion
-            $query = 'INSERT INTO accounts (fname, lname, email, phone, password) VALUES (:fname, :lname, :email, :phone, :password)';
+            $query = 'INSERT INTO accounts (nume, prenume, email, telefon, password) VALUES (:nume, :prenume, :email, :telefon, :password)';
 
             #Create a PDOStatement object
             $stm = $db->prepare($query);
@@ -59,10 +59,10 @@
             $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
             #Bind values to parameters in the prepared statement
-            $stm->bindValue(':fname', $first_name);
-            $stm->bindValue(':lname', $last_name);
+            $stm->bindValue(':nume', $first_name);
+            $stm->bindValue(':prenume', $last_name);
             $stm->bindValue(':email', $email);
-            $stm->bindValue(':phone', $phone);
+            $stm->bindValue(':telefon', $phone);
             $stm->bindValue(':password', $pass_hash);
 
             #Execute query and store true or false based on success
@@ -78,9 +78,9 @@
             session_start();
 
             #Set variables
-            $_SESSION["account_id"] = $db_data[0]["account_id"];
-            $_SESSION["fname"] = $db_data[0]["fname"];
-            $_SESSION["lname"] = $db_data[0]["lname"];
+            $_SESSION["account_type"] = $db_data[0]["account_type"];
+            $_SESSION["nume"] = $db_data[0]["nume"];
+            $_SESSION["prenume"] = $db_data[0]["prenume"];
             $_SESSION["email"] = $db_data[0]["email"];
 
             #Close this page and redirect to index

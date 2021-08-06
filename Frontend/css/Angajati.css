@@ -25,9 +25,11 @@ a{
 
 .content-table {
   border-collapse: collapse;
-  margin: 55px 0;
+  /* margin: 55px 0; */
   position: relative;
-  margin:220px;
+  margin-top:220px;
+  margin-right:40px;
+  margin-left:120px;
   font-size: 0.9em;
   min-width: 500px;
   border-radius: 10px 5px 0 0;

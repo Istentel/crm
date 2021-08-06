@@ -1,5 +1,4 @@
 <?php
-    session_destroy();
     if(isset($_POST["submit"])){
         #1.Get data from site
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
@@ -48,9 +47,9 @@
             session_start();
 
             #Set variables
-            $_SESSION["account_id"] = $db_data[0]["account_id"];
-            $_SESSION["fname"] = $db_data[0]["fname"];
-            $_SESSION["lname"] = $db_data[0]["lname"];
+            $_SESSION["account_type"] = $db_data[0]["account_type"];
+            $_SESSION["nume"] = $db_data[0]["nume"];
+            $_SESSION["prenume"] = $db_data[0]["prenume"];
             $_SESSION["email"] = $db_data[0]["email"];
             if(isset($db_data[0]["img"])){
                 $_SESSION["img"] = $db_data[0]["img"];

@@ -1,10 +1,10 @@
 <?php
   #GETTING USER DATA
   session_start();
-  $fname = $_SESSION["fname"];
-  $lname = $_SESSION["lname"];
+  $fname = $_SESSION["nume"];
+  $lname = $_SESSION["prenume"];
   $email = $_SESSION["email"];
-  $account_id = $_SESSION["account_id"];
+  $account_id = $_SESSION["account_type"];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -52,10 +52,10 @@
       <span class="text">Management Clienti</span>
     </div>
     <div class="search-box">
-    <input class="search-txt" type="text" name="" placeholder="Cautare...">
-    <a class="search-btn" href="#">
-      <i class="fas fa-search"></i>
-    </a>
+      <input class="search-txt" type="text" name="" placeholder="Cautare...">
+      <a class="search-btn" href="#">
+        <i class="fas fa-search"></i>
+      </a>
   </div>
     <div class="buttons">
           <a href="/crm/Frontend/Html/Companie_nou.php" class="btn btn-info pull-left">Adauga Companie</a>

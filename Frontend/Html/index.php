@@ -1,15 +1,15 @@
 <?php 
   session_start();
-  $account_id = $_SESSION["account_id"]; 
-  $fname = $_SESSION["fname"];
-  $lname = $_SESSION["lname"];
+  $account_id = $_SESSION["account_type"]; 
+  $fname = $_SESSION["nume"];
+  $lname = $_SESSION["prenume"];
   $email = $_SESSION["email"];
-  $img = $_SESSION["img"];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
+    <title>Home</title>
     <link rel="stylesheet"  href="/crm/Frontend/css/Style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>

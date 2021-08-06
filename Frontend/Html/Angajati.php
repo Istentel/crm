@@ -1,38 +1,49 @@
 <?php
     #GETTING USER DATA
     session_start();
-    $fname = $_SESSION["fname"];
-    $lname = $_SESSION["lname"];
+    $fname = $_SESSION["nume"];
+    $lname = $_SESSION["prenume"];
     $email = $_SESSION["email"];
-    $account_id = $_SESSION["account_id"];
+    $account_type = $_SESSION["account_type"];
 
     #Connect to the database
     require('../../Backend/connect.php');
 
     #Get clients names
     #Define the querry
-    $query_agenti = 'SELECT * FROM sellersagent WHERE account_id=:account_id';
+    $query_angajati = 'SELECT * FROM angajati';
 
     #Prepare statement to execute 
     #This creates a PDOStatement object
-    $agenti_statement = $db->prepare($query_agenti);
-
-    $agenti_statement->bindValue(":account_id", $account_id);
+    $angajati_statement = $db->prepare($query_angajati);
 
     #Execute the query
-    $agenti_statement->execute();
+    $angajati_statement->execute();
 
     #Return an array containing the query results
-    $agenti_data = $agenti_statement->fetchAll();
+    $angajati_data = $angajati_statement->fetchAll();
 
     #Allow new sql statements to execute
-    $agenti_statement->closeCursor();
+    $angajati_statement->closeCursor();
+
+    #COUNTER 
+    $angajati_nr = 1;
+
+    #GET DEPARTAMENT DATA
+    $query_departament = 'SELECT * FROM departament';
+    $departament_statement = $db->prepare($query_departament);
+    $departament_statement->execute();
+    $departamente = $departament_statement->fetchAll();
+    $departament_statement->closeCursor();
+
+
   ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"  href="/crm/Frontend/css/AgentVanzari.css">
+    <title>Angajati</title>
+    <link rel="stylesheet"  href="/crm/Frontend/css/Angajati.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/f7875d77c3.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -71,53 +82,58 @@
   <div class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Agent Vanzari</span>
+      <span class="text">Angajati</span>
     </div>
+
     <div class="search-box">
-    <input class="search-txt" type="text" name="" placeholder="Cautare...">
-    <a class="search-btn" href="#">
-      <i class="fas fa-search"></i>
-    </a>
-  </div>
+      <input class="search-txt" type="text" name="" placeholder="Cautare...">
+      <a class="search-btn" href="#">
+        <i class="fas fa-search"></i>
+      </a>
+    </div>
 
 
     <div class="buttons">
-          <a href="/crm/Frontend/Html/Agent_nou.php" class="btn btn-info pull-left">Agent Nou</a>
-          <a href="/crm/Frontend/Html/Agent_import.html" class="btn btn-info pull-left">Agent Import</a>
+          <a href="/crm/Frontend/Html/Angajat_nou.php" class="btn btn-info pull-left">Adauga angajat</a>
     </div> 
 
     <table class="content-table">
       <thead>
         <tr>
+          <th>Nr</th>
           <th>Nume</th>
-          <th>Prenume</th>
           <th>Email</th>
           <th>Telefon</th>
-          <th>Firme asociate</th>
-          <th>Grupuri</th>
           <th>Activ</th>
-          <th>Nr.Produse Vandute</th>
+          <th>Salariu</th>
+          <th>Nivelul angajatului</th>
+          <th>Valoare angajat</th>
+          <th>Departament</th>
           <th>Data Angajare</th>
           <th>Edits</th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach($agenti_data as $data) :?>
+        <?php foreach($angajati_data as $data) :?>
           <tr class="active-row">
-            <td><?php echo $data['first_name']; ?></td>
-            <td><?php echo $data['last_name']; ?></td>
+            <td><?php echo $angajati_nr++; ?></td>
+            <td><a href="Angajat_view.php?id=<?php echo $data['id']; ?>"><?php echo $data['nume'] . " " . $data['prenume']; ?></a></td>
             <td><?php echo $data['email']; ?></td>
-            <td><?php echo $data['phone']; ?></td>
-            <td><?php echo $data['firme_asociate']; ?></td>
-            <td><?php echo $data['grupuri']; ?></td>
-            <td> <div class="toggle">
-              <input type="checkbox" id="toggleBtn" onclick="toggleBtn(<?php echo $data['account_id'] . ', ' . $data['id'] . ', ' . $data['activ']; ?>)" <?php if($data['activ']) echo 'checked';?>>
-              <label for="" class="onbtn"></label>
-              <label for="" class="ofbtn"></label>
-            </div></td>
-            <td><?php echo $data['prod_vandute']; ?></td>
+            <td><?php echo $data['telefon']; ?></td>
+            <td>
+              <div class="toggle">
+                <input type="checkbox" id="toggleBtn" onclick="toggleBtn(<?php echo $data['id'] . ', ' . $data['activ']; ?>)" <?php if($data['activ']) echo 'checked';?>>
+                <label for="" class="onbtn"></label>
+                <label for="" class="ofbtn"></label>
+              </div>
+            </td>
+            <td><?php echo $data['salariu']; ?></td>
+            <td><?php echo $data['nivel_angajat']; ?></td>
+            
+            <td><?php echo $data['valoare_angajat']; ?></td>
+            <td><?php echo $data['departament']; ?></td>
             <td><?php echo $data['data_angajare']; ?></td>
-            <td> <div class="container"><a href="/crm/Frontend/Html/Agent_Edit.php?id=<?php echo $data['id']; ?>" class="ctn ctn1">Edit</a>  <br> <a href="/crm/Backend/sellers_agent/delete_agent.php?id=<?php echo $data['id'];; ?>" class="ctn ctn2">Delete</a> </div></td>
+            <td> <div class="container"><a href="/crm/Frontend/Html/Angajat_edit.php?id=<?php echo $data['id']; ?>" class="ctn ctn1">Edit</a> </div></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
@@ -146,14 +162,15 @@
       sidebar.classList.toggle("close");
     });
 
-    function toggleBtn(account_id, id, activ){
+    function toggleBtn(id, activ){
       $.ajax({
         type: "POST",
-        url:'../../Backend/sellers_agent/changeActivStatus.php',
-        data:{'account_id': account_id, 'id': id, 'activ': activ},
+        url:'../../Backend/angajati/changeActivStatus.php',
+        data:{'id': id, 'activ': activ},
         success:function(){}
       });
     }
+
   </script>
 </body>
 </html>
