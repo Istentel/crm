@@ -7,36 +7,20 @@
     $account_type = $_SESSION["account_type"];
 
     #Connect to the database
-    require('../../Backend/connect.php');
+    require('../../Backend/functions.php');
 
     #Get clients names
     #Define the querry
     $query_angajati = 'SELECT * FROM angajati';
-
-    #Prepare statement to execute 
-    #This creates a PDOStatement object
-    $angajati_statement = $db->prepare($query_angajati);
-
-    #Execute the query
-    $angajati_statement->execute();
-
-    #Return an array containing the query results
-    $angajati_data = $angajati_statement->fetchAll();
-
-    #Allow new sql statements to execute
-    $angajati_statement->closeCursor();
+    $angajati_data = getData($query_angajati);
 
     #COUNTER 
     $angajati_nr = 1;
 
     #GET DEPARTAMENT DATA
     $query_departament = 'SELECT * FROM departament';
-    $departament_statement = $db->prepare($query_departament);
-    $departament_statement->execute();
-    $departamente = $departament_statement->fetchAll();
-    $departament_statement->closeCursor();
-
-
+    $departamente = getData($query_departament);
+  
   ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
