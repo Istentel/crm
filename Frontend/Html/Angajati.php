@@ -12,14 +12,14 @@
     #Get clients names
     #Define the querry
     $query_angajati = 'SELECT * FROM angajati';
-    $angajati_data = getData($query_angajati);
+    $angajati_data = Io::getData($query_angajati);
 
     #COUNTER 
     $angajati_nr = 1;
 
     #GET DEPARTAMENT DATA
     $query_departament = 'SELECT * FROM departament';
-    $departamente = getData($query_departament);
+    $departamente = Io::getData($query_departament);
   
   ?>
 <!DOCTYPE html>

@@ -6,36 +6,19 @@
     $email = $_SESSION["email"];
     $account_type = $_SESSION["account_type"];
 
-    $account_id = $_GET['id'];
+    $angajat_id = $_GET['id'];
 
     #GET DATA
 
     #Connect to the database
-    require('../../Backend/connect.php');
+    require('../../Backend/functions.php');
     #Get angajat data
-    $query_angajat = 'SELECT * FROM angajati WHERE id=:id';
-
-    $stm = $db->prepare($query_angajat);
-
-    $stm->bindValue(':id', $account_id);
-
-    $stm->execute();
-
-    $angajat_data = $stm->fetchAll();
+    $query_angajat = 'SELECT * FROM angajati WHERE id=' . $angajat_id;
+    $angajat_data = Io::getData($query_angajat);
 
     #Get angajat acte
-    $query_acte = 'SELECT * FROM acte WHERE id_angajat=:id';
-
-    $stm = $db->prepare($query_acte);
-
-    $stm->bindValue(':id', $account_id);
-
-    $stm->execute();
-
-    $acte_data = $stm->fetchAll();
-
-    $stm->closeCursor();
-
+    $query_acte = 'SELECT * FROM acte WHERE id_angajat=' . $angajat_id;
+    $acte_data = Io::getData($query_acte);
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +72,7 @@
         </div>
 
         <div class="edit_button">
-          <a href="/crm/Frontend/Html/Angajat_edit.php?id=<?php echo $account_id ?>" class= "btn btn-info pull left">Edit</a>
+          <a href="/crm/Frontend/Html/Angajat_edit.php?id=<?php echo $angajat_id ?>" class= "btn btn-info pull left">Edit</a>
         </div>
 
         <h1><?php echo $angajat_data[0]['nume'] . ' ' . $angajat_data[0]['prenume']; ?></h1>

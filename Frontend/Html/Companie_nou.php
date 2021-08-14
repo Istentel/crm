@@ -1,9 +1,9 @@
 <?php
     session_start();
-    $account_id = $_SESSION["account_id"];
-    $fname = $_SESSION["fname"];
-    $lname = $_SESSION["lname"];
+    $fname = $_SESSION["nume"];
+    $lname = $_SESSION["prenume"];
     $email = $_SESSION["email"];
+    $account_type = $_SESSION["account_type"];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -59,8 +59,6 @@
       <h1>Firma Noua</h1>
       
       <form action="/crm/Backend/clienti/add_companie.php" method="post" id="frm1">
-        <input type="hidden" name="account_id" value="<?php echo $account_id; ?>">
-
         <div class="col-2">
           <label>
             Companie:*
